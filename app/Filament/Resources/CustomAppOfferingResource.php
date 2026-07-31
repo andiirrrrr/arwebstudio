@@ -1,0 +1,77 @@
+<?php
+
+namespace App\Filament\Resources;
+
+use App\Filament\Resources\CustomAppOfferingResource\Pages;
+use App\Models\CustomAppOffering;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+
+class CustomAppOfferingResource extends Resource
+{
+    protected static ?string $model = CustomAppOffering::class;
+    protected static ?string $navigationIcon = 'heroicon-o-cpu-chip';
+    protected static ?string $navigationGroup = 'Manajemen Harga';
+    protected static ?string $label = 'Custom App Offering';
+    protected static ?string $pluralLabel = 'Custom App Offering';
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Forms\Components\TextInput::make('price_start')
+                    ->label('Harga Mulai')
+                    ->required()
+                    ->maxLength(255)
+                    ->placeholder('Rp 8.000.000'),
+                Forms\Components\Textarea::make('description')
+                    ->label('Deskripsi')
+                    ->rows(3)
+                    ->placeholder('Deskripsi tentang layanan custom web app...'),
+                Forms\Components\TagsInput::make('example_use_cases')
+                    ->label('Contoh Use Case')
+                    ->placeholder('Tambahkan contoh, lalu tekan Enter')
+                    ->helperText('Contoh: Sistem E-Learning, Aplikasi Inventory, Sistem Manajemen Proyek'),
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('price_start')
+                    ->label('Harga Mulai')
+                    ->searchable()
+                    ->weight('bold'),
+                Tables\Columns\TextColumn::make('description')
+                    ->label('Deskripsi')
+                    ->limit(50),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Dibuat')
+                    ->dateTime('d M Y')
+                    ->sortable(),
+            ])
+            ->filters([])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ]);
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListCustomAppOfferings::route('/'),
+            'create' => Pages\CreateCustomAppOffering::route('/create'),
+            'edit' => Pages\EditCustomAppOffering::route('/{record}/edit'),
+        ];
+    }
+}
