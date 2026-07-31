@@ -13,3 +13,5 @@ Route::get('/tentang', [PageController::class, 'about'])->name('about');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 Route::get('/kontak', [PageController::class, 'contact'])->name('contact');
 Route::post('/kontak', [ContactController::class, 'send'])->name('contact.send')->middleware('throttle:5,1');
+Route::get('/blog', [PageController::class, 'blog'])->name('blog');
+Route::get('/blog/{slug}', [PageController::class, 'blogShow'])->name('blog.show');

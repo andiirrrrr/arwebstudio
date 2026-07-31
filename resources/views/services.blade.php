@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Layanan Kami - ARWebStudio')
+@section('title', 'Layanan Pembuatan Website di Makassar - ARWebStudio')
+@section('meta_description', 'Layanan pembuatan website profesional di Makassar: Landing Page, Company Profile, E-commerce, dan Custom Web App. Konsultasi gratis untuk UMKM di Makassar!')
 
 @section('content')
 <div class="flex flex-col w-full relative bg-[#101415]">
@@ -25,10 +26,13 @@
                 </h1>
             </div>
             <div class="flex flex-col items-start lg:items-end gap-4 max-w-sm">
-    <p class="quote-text text-[16px] text-[#c5c6ce] text-left lg:text-right leading-relaxed italic border-l-2 lg:border-l-0 lg:border-r-2 border-[#F5A623]/30 pl-4 lg:pl-0 lg:pr-4">
-        "Membangun bukan sekadar merangkai kode, melainkan merancang masa depan bisnis dalam ekosistem digital yang dinamis."
-    </p>
-</div>
+                <p class="quote-text text-[16px] text-[#c5c6ce] text-left lg:text-right leading-relaxed italic border-l-2 lg:border-l-0 lg:border-r-2 border-[#F5A623]/30 pl-4 lg:pl-0 lg:pr-4">
+                    "Membangun bukan sekadar merangkai kode, melainkan merancang masa depan bisnis dalam ekosistem digital yang dinamis."
+                </p>
+                <span class="text-[10px] text-[#c5c6ce]/40 font-mono uppercase tracking-widest ">
+                    — Makassar, Indonesia
+                </span>
+            </div>
         </div>
         <div class="max-w-[1280px] mx-auto h-px w-full bg-gradient-to-r from-transparent via-[rgba(74,127,199,0.15)] to-transparent mt-12"></div>
     </section>

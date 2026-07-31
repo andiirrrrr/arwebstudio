@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'ARWebStudio - Jasa Website Profesional Makassar')
+@section('title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')
+@section('meta_description', 'ARWebStudio adalah jasa pembuatan website profesional di Makassar. Kami melayani landing page, company profile, e-commerce, dan custom web app untuk UMKM dan perusahaan di Makassar dan sekitarnya.')
 
 @section('content')
     <!-- ===== HERO ===== -->
@@ -9,10 +10,11 @@
             <div class="w-full lg:w-1/2 flex flex-col gap-8">
                 <div class="flex flex-col gap-4">
                     <span class="hero-badge text-sm font-semibold text-[#F5A623] uppercase tracking-[0.2em]">
-                        Partner Digital Terpercaya
+                        Jasa Website Profesional di Makassar
                     </span>
                     <h1 class="hero-title font-['Sora'] text-[40px] lg:text-[72px] font-bold leading-[48px] lg:leading-[80px] tracking-[-0.02em] text-[#e0e3e5]">
-                        Transformasi <span class="text-[#a8c8ff]">Digital</span> UMKM & Bisnis
+                        Transformasi <span class="text-[#a8c8ff]">Digital</span><br/>
+                        <span class="text-[#a8c8ff]">UMKM & Bisnis</span>
                     </h1>
                     <p class="hero-desc text-[18px] leading-[28px] text-[#c5c6ce] max-w-xl">
                         Kami membantu bisnis Anda tumbuh lebih cepat melalui solusi web kustom, desain UI/UX yang memikat, dan strategi teknologi yang tepat sasaran.

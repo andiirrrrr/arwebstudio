@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Kontak - ARWebStudio')
+@section('title', 'Kontak ARWebStudio - Jasa Pembuatan Website Makassar')
+@section('meta_description', 'Hubungi ARWebStudio untuk konsultasi pembuatan website profesional di Makassar. Tersedia layanan WhatsApp dan email untuk UMKM di Makassar.')
 
 @section('content')
     <!-- ===== HERO SECTION ===== -->

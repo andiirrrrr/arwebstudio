@@ -23,7 +23,7 @@ class ServicePriceResource extends Resource
     protected static ?string $label = 'Harga Layanan';
     protected static ?string $pluralLabel = 'Harga Layanan';
 
-    public static function form(Form $form): Form
+   public static function form(Form $form): Form
     {
         return $form
             ->schema([
@@ -68,20 +68,46 @@ class ServicePriceResource extends Resource
                             ->label('Termasuk Domain'),
                         Toggle::make('is_featured')
                             ->label('Unggulan'),
+                        
+                        // ===== PERBAIKAN =====
                         Repeater::make('features')
                             ->label('Fitur Paket')
                             ->schema([
-                        TextInput::make('feature')
-                            ->label('Fitur')
-                            ->placeholder('Masukkan fitur...')
-                            ->required(),
+                                TextInput::make('feature')
+                                    ->label('Fitur')
+                                    ->placeholder('Masukkan fitur...')
+                                    ->required(),
                             ])
                             ->itemLabel(fn (array $state): ?string => $state['feature'] ?? null)
                             ->default([])
                             ->addable()
                             ->deletable()
                             ->nullable()
-                            ->helperText('Tambahkan fitur-fitur yang termasuk dalam paket ini'),
+                            ->afterStateHydrated(function ($component, $state) {
+                                if (is_string($state)) {
+                                    $decoded = json_decode($state, true);
+                                    $component->state(is_array($decoded) ? $decoded : []);
+                                } 
+                                elseif (is_array($state) && count($state) > 0 && is_string($state[0] ?? null)) {
+                                    $newState = array_map(function ($item) {
+                                        return ['feature' => $item];
+                                    }, $state);
+                                    $component->state($newState);
+                                } elseif (!is_array($state)) {
+                                    $component->state([]);
+                                }
+                            })
+                            ->mutateDehydratedStateUsing(function ($state) {
+                                if (is_array($state)) {
+                                    $features = array_map(function ($item) {
+                                        return $item['feature'] ?? $item;
+                                    }, $state);
+                                    return $features;
+                                }
+                                return [];
+                            })
+                            ->helperText('Tambahkan fitur-fitur yang termasuk dalam paket ini')
+                            ->columnSpanFull(),
                     ])->columns(2),
             ]);
     }

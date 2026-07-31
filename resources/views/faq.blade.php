@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'FAQ - ARWebStudio')
+@section('title', 'FAQ - Pertanyaan Umum ARWebStudio Makassar')
+@section('meta_description', 'Pertanyaan umum seputar pembuatan website, biaya, waktu pengerjaan, dan layanan ARWebStudio di Makassar.')
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">

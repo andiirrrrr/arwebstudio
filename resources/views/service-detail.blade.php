@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $service->name . ' - ARWebStudio')
+@section('title', $service->name . ' - Jasa Pembuatan Website di Makassar | ARWebStudio')
+@section('meta_description', 'Layanan ' . $service->name . ' dari ARWebStudio, jasa pembuatan website profesional di Makassar. ' . Str::limit($service->description, 140))
 
 @section('content')
 <div class="flex flex-col w-full overflow-hidden">
@@ -68,7 +69,8 @@
     <section class="w-full py-[120px] bg-[#191c1e] border-y border-[rgba(74,127,199,0.2)]">
         <div class="max-w-[1280px] mx-auto px-5 lg:px-16">
             <div class="flex flex-col items-center text-center mb-20">
-                <h2 class="font-['Sora'] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] text-[#e0e3e5]">Solusi Skalabel.</h2>
+                <h2 class="font-['Sora'] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] text-[#e0e3e5]">Paket Layanan</h2>
+                <span>Pilih paket yang paling sesuai dengan kebutuhan website Anda</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @forelse($servicePrices as $index => $price)
@@ -78,10 +80,9 @@
                         if ($price->features) {
                             $raw = is_string($price->features) ? json_decode($price->features, true) : $price->features;
                             if (is_array($raw)) {
-                                $features = array_slice($raw, 0, 4);
+                                $features = $raw;
                             }
                         }
-                        // ===== WHATSAPP URL =====
                         $waNumber = '6285922107678';
                         $waMessage = 'Halo ARWebStudio, saya tertarik dengan layanan ' . $service->name . ' - Paket ' . $price->package->name . '. Saya ingin berkonsultasi lebih lanjut.';
                         $waUrl = 'https://wa.me/' . $waNumber . '?text=' . urlencode($waMessage);
@@ -98,44 +99,65 @@
                             <span class="text-xs text-[#c5c6ce]">Rp</span>
                             <span class="text-[30px] lg:text-[48px] font-bold text-[#e0e3e5]">{{ number_format($price->price, 0, ',', '.') }}</span>
                         </div>
-                        <ul class="flex flex-col gap-2 flex-grow">
+                        
+                        <!-- Fitur 2 Kolom -->
+                        @if(count($features) > 0)
+                            <div class="grid grid-cols-2 gap-1 my-2">
+                                @foreach($features as $feature)
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="material-symbols-outlined text-[#F5A623] text-sm flex-shrink-0">check_circle</span>
+                                        <span class="text-[12px] text-[#c5c6ce] leading-tight">
+                                            {{ is_array($feature) ? ($feature['feature'] ?? reset($feature)) : $feature }}
+                                        </span>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+
+                        <!-- Info Tambahan -->
+                        <div class="flex flex-wrap gap-3 text-xs text-[#c5c6ce] border-t border-[rgba(74,127,199,0.1)] pt-3 mt-1">
                             @if($price->page_limit)
-                                <li class="flex items-center gap-2 text-[16px] text-[#c5c6ce]">
-                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">check_circle</span> 
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">description</span>
                                     {{ $price->page_limit }} Halaman
-                                </li>
+                                </span>
+                            @else
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">description</span>
+                                    Unlimited Halaman
+                                </span>
                             @endif
                             @if($price->estimated_days)
-                                <li class="flex items-center gap-2 text-[16px] text-[#c5c6ce]">
-                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">check_circle</span> 
-                                    Estimasi {{ $price->estimated_days }} Hari
-                                </li>
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">schedule</span>
+                                    {{ $price->estimated_days }} Hari
+                                </span>
                             @endif
                             @if($price->revision_limit)
-                                <li class="flex items-center gap-2 text-[16px] text-[#c5c6ce]">
-                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">check_circle</span> 
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">autorenew</span>
                                     {{ $price->revision_limit }}x Revisi
-                                </li>
+                                </span>
+                            @else
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">autorenew</span>
+                                    Unlimited Revisi
+                                </span>
                             @endif
                             @if($price->hosting)
-                                <li class="flex items-center gap-2 text-[16px] text-[#c5c6ce]">
-                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">check_circle</span> 
-                                    Hosting Included
-                                </li>
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">cloud</span>
+                                    Hosting
+                                </span>
                             @endif
                             @if($price->domain)
-                                <li class="flex items-center gap-2 text-[16px] text-[#c5c6ce]">
-                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">check_circle</span> 
-                                    Domain Included
-                                </li>
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">language</span>
+                                    Domain
+                                </span>
                             @endif
-                            @foreach($features as $feature)
-                                <li class="flex items-center gap-2 text-[16px] text-[#c5c6ce]">
-                                    <span class="material-symbols-outlined text-[#F5A623] text-sm">check_circle</span> 
-                                    {{ is_array($feature) ? ($feature['feature'] ?? reset($feature)) : $feature }}
-                                </li>
-                            @endforeach
-                        </ul>
+                        </div>
+
                         <a href="{{ $waUrl }}" 
                         target="_blank"
                         class="w-full py-3 {{ $isPopular ? 'bg-[#F5A623] text-[#101415]' : 'border border-[#F5A623] text-[#F5A623]' }} font-semibold text-sm rounded-lg hover:{{ $isPopular ? 'brightness-110' : 'bg-[#F5A623] text-[#101415]' }} transition-all text-center">
@@ -159,7 +181,7 @@
     <section class="w-full py-[120px] bg-[#1d2022] overflow-hidden">
         <div class="max-w-[1280px] mx-auto px-5 lg:px-16">
             <div class="flex flex-col items-center text-center mb-20">
-                <h2 class="font-['Sora'] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] text-[#e0e3e5]">Alur Pengerjaan.</h2>
+                <h2 class="font-['Sora'] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] text-[#e0e3e5]">Proses Kerja Kami</h2>
             </div>
             
             <!-- ===== MOBILE VERSION ===== -->
@@ -261,7 +283,7 @@
         <div class="max-w-[1280px] mx-auto px-5 lg:px-16">
             <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-4">
                 <div class="flex flex-col">
-                    <h2 class="font-['Sora'] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] text-[#e0e3e5]">Proyek Serupa.</h2>
+                    <h2 class="font-['Sora'] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] text-[#e0e3e5]">Proyek Terkait</h2>
                 </div>
                 <a href="{{ route('portfolio') }}" class="flex items-center gap-2 text-[#F5A623] font-semibold text-sm hover:translate-x-1 transition-transform">
                     Lihat Semua Portfolio <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -308,7 +330,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.bg-\\[\\#101415\\], .bg-\\[\\#191c1e\\], .bg-\\[\\#1d2022\\], .bg-\\[\\#1E2E4D\\], section h1, section h2').forEach((el) => {
+        document.querySelectorAll('section > div, section h1, section h2').forEach((el) => {
             if (!el.classList.contains('absolute') && !el.classList.contains('fixed')) {
                 el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
                 observer.observe(el);

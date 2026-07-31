@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Portfolio - ARWebStudio')
+@section('title', 'Portfolio Website Makassar - ARWebStudio')
+@section('meta_description', 'Lihat portfolio website dan aplikasi web yang telah kami buat untuk UMKM dan perusahaan di Makassar. Jasa pembuatan website profesional.')
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">

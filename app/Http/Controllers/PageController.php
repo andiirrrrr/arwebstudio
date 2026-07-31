@@ -9,6 +9,7 @@ use App\Models\Testimonial;
 use App\Models\Package;
 use App\Models\ServicePrice;
 use Illuminate\Http\Request;
+use App\Models\Article;
 
 class PageController extends Controller
 {
@@ -100,5 +101,41 @@ class PageController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function blog()
+    {
+        $articles = Article::where('is_published', true)
+            ->orderBy('published_at', 'desc')
+            ->paginate(9);
+        
+        $recentArticles = Article::where('is_published', true)
+            ->orderBy('published_at', 'desc')
+            ->take(5)
+            ->get();
+        
+        $categories = Article::where('is_published', true)
+            ->distinct('category')
+            ->pluck('category');
+        
+        return view('blog', compact('articles', 'recentArticles', 'categories'));
+    }
+
+    public function blogShow($slug)
+    {
+        $article = Article::where('slug', $slug)
+            ->where('is_published', true)
+            ->firstOrFail();
+        
+        // Increment views
+        $article->increment('views');
+        
+        $recentArticles = Article::where('is_published', true)
+            ->where('id', '!=', $article->id)
+            ->orderBy('published_at', 'desc')
+            ->take(3)
+            ->get();
+        
+        return view('blog-detail', compact('article', 'recentArticles'));
     }
 }

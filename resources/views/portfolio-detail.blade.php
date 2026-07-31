@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $project->title . ' - ARWebStudio')
+@section('title', $project->title . ' - Portfolio Jasa Website Makassar | ARWebStudio')
+@section('meta_description', $project->title . ' - ' . Str::limit($project->description, 140) . ' | ARWebStudio, jasa pembuatan website di Makassar.')
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">

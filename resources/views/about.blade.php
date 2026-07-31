@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Kami - ARWebStudio')
+@section('title', 'Tentang ARWebStudio - Jasa Pembuatan Website di Makassar')
+@section('meta_description', 'ARWebStudio adalah jasa pembuatan website yang didirikan tahun 2026 di Makassar. Full Stack Developer dengan bantuan AI untuk solusi digital terbaik bagi UMKM Makassar.')
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">
@@ -38,7 +39,7 @@
             <!-- Right Column - Image -->
             <div class="lg:col-span-5 relative mt-12 lg:mt-0">
                 <div class="about-hero-image relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] border border-white/5 transform lg:translate-x-12">
-                    <img alt="AR Web Studio" class="w-full h-full object-cover" src="{{ asset('images/logo.jpeg') }}">
+                    <img alt="Logo ARWebStudio - Jasa Website Makassar" class="w-full h-full object-cover" src="{{ asset('images/logo.jpeg') }}">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#101415] via-transparent to-transparent opacity-40"></div>
                 </div>
                 <!-- Floating Badge -->

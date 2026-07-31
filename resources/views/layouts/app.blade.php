@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <!-- ===== SEO GLOBAL ===== -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>@yield('title', 'ARWebStudio - Jasa Website Profesional Makassar')</title>
-    <meta name="description" content="@yield('meta_description', 'ARWebStudio - Jasa pembuatan website UMKM, company profile, e-commerce, dan custom web app di Makassar.')">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ARWebStudio">
+    <meta name="language" content="id">
+
+    <!-- ===== GEO TAGS ===== -->
+    <meta name="geo.region" content="ID-SN">
+    <meta name="geo.placename" content="Makassar">
+    <meta name="geo.position" content="-5.147665;119.432731">
+    <meta name="ICBM" content="-5.147665, 119.432731">
+
+    <!-- ===== KEYWORDS ===== -->
+    <meta name="keywords" content="jasa pembuatan website makassar, jasa website makassar, pembuatan website makassar, website UMKM makassar, jasa web makassar, company profile makassar, toko online makassar, custom web app makassar, ARWebStudio">
+
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo-arwebstudio.png') }}">
+
+    <!-- ===== CANONICAL URL ===== -->
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('og_title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')">
+    <meta property="og:description" content="@yield('og_description', 'ARWebStudio - Jasa pembuatan website profesional di Makassar. Landing Page, Company Profile, E-commerce, dan Custom Web App.')">
+    <meta property="og:image" content="@yield('og_image', asset('images/og-image.jpg'))">
+    <meta property="og:site_name" content="ARWebStudio">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('twitter_title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')">
+    <meta name="twitter:description" content="@yield('twitter_description', 'ARWebStudio - Jasa pembuatan website profesional di Makassar.')">
+    <meta name="twitter:image" content="@yield('twitter_image', asset('images/og-image.jpg'))">
+
+    <title>@yield('title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')</title>
+    <meta name="description" content="@yield('meta_description', 'ARWebStudio - Jasa pembuatan website profesional di Makassar untuk UMKM, company profile, e-commerce, dan custom web app.')">
+    
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -97,6 +134,54 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
     </style>
+
+    <!-- ===== STRUCTURED DATA - LOCAL BUSINESS ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "ARWebStudio",
+        "description": "Jasa pembuatan website profesional di Makassar. Melayani UMKM, company profile, e-commerce, dan custom web app.",
+        "url": "{{ url('/') }}",
+        "logo": "{{ asset('images/logo-arwebstudio.png') }}",
+        "image": "{{ asset('images/og-image.jpg') }}",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Makassar",
+            "addressRegion": "Sulawesi Selatan",
+            "addressCountry": "ID"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-5.147665",
+            "longitude": "119.432731"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+6285922107678",
+            "contactType": "sales",
+            "availableLanguage": "Indonesian"
+        },
+        "sameAs": [
+            "https://wa.me/6285922107678",
+            "https://instagram.com/arwebstudio"
+        ],
+        "priceRange": "Rp 500.000 - Rp 25.000.000",
+        "openingHours": "Mo-Fr 08:00-17:00",
+        "serviceType": [
+            "Jasa Pembuatan Website",
+            "Company Profile",
+            "Landing Page",
+            "E-commerce",
+            "Custom Web App"
+        ],
+        "areaServed": {
+            "@type": "City",
+            "name": "Makassar"
+        }
+    }
+    </script>
+
 </head>
 <body class="bg-[#101415] font-['Plus_Jakarta_Sans'] text-[#e0e3e5] antialiased min-h-screen flex flex-col">
 
@@ -117,6 +202,7 @@
                         ['name' => 'Layanan', 'route' => 'services', 'url' => '/layanan'],
                         ['name' => 'Portfolio', 'route' => 'portfolio', 'url' => '/portofolio'],
                         ['name' => 'Tentang', 'route' => 'about', 'url' => '/tentang'],
+                        ['name' => 'Blog', 'route' => 'blog', 'url' => '/blog'],
                         ['name' => 'FAQ', 'route' => 'faq', 'url' => '/faq'],
                     ];
                 @endphp
@@ -168,6 +254,7 @@
                         ['name' => 'Layanan', 'url' => '/layanan'],
                         ['name' => 'Portfolio', 'url' => '/portofolio'],
                         ['name' => 'Tentang', 'url' => '/tentang'],
+                        ['name' => 'Blog', 'route' => 'blog', 'url' => '/blog'],
                         ['name' => 'FAQ', 'url' => '/faq'],
                     ];
                 @endphp
