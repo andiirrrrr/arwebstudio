@@ -21,11 +21,14 @@ class Project extends Model
         'project_url',
     ];
 
-    // Tambahkan accessor untuk URL gambar
-    public function getThumbnailUrlAttribute($value)
+    // Accessor untuk URL publik yang diformat (digunakan di frontend Blade)
+    public function getFormattedThumbnailUrlAttribute()
     {
-        if ($value) {
-            return asset('storage/' . $value);
+        if ($this->thumbnail_url) {
+            if (str_starts_with($this->thumbnail_url, 'http://') || str_starts_with($this->thumbnail_url, 'https://')) {
+                return $this->thumbnail_url;
+            }
+            return asset('storage/' . $this->thumbnail_url);
         }
         return null;
     }

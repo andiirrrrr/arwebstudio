@@ -208,30 +208,6 @@
     </section>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                }
-            });
-        }, observerOptions);
-
-        const scrollElements = document.querySelectorAll('.glass-card, section h1, section h2, .aspect-\\[4\\/3\\]');
-        scrollElements.forEach((el) => {
-            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
-            observer.observe(el);
-        });
-    });
-</script>
-
 <style>
     .dot-pattern {
         background-image: radial-gradient(rgba(186, 198, 232, 0.05) 1px, transparent 1px);
@@ -249,12 +225,6 @@
         background: rgba(25, 28, 30, 0.4);
         backdrop-filter: blur(12px);
         border: 1px solid rgba(74, 127, 199, 0.1);
-    }
-    .stagger-card {
-        opacity: 0;
-    }
-    .gsap-reveal {
-        opacity: 0;
     }
     .thumbnail-container {
         will-change: transform;

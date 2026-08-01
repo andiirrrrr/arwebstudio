@@ -93,8 +93,7 @@ class ProjectResource extends Resource
                     ->label('Thumbnail')
                     ->square()
                     ->size(50)
-                    ->disk('public')
-                    ->url(fn ($record) => $record->thumbnail_url ? asset('storage/' . $record->thumbnail_url) : null),
+                    ->disk('public'),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Judul')
                     ->searchable()

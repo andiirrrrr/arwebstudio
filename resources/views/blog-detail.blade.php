@@ -57,15 +57,7 @@
             @endif
 
             <!-- Content -->
-            <div class="mt-8 prose prose-invert prose-lg max-w-none 
-                        prose-headings:text-[#e0e3e5] 
-                        prose-p:text-[#c5c6ce] 
-                        prose-a:text-[#F5A623] 
-                        prose-strong:text-[#e0e3e5] 
-                        prose-ul:text-[#c5c6ce] 
-                        prose-ol:text-[#c5c6ce] 
-                        prose-blockquote:border-[#F5A623] 
-                        prose-blockquote:text-[#c5c6ce]">
+            <div class="mt-8 article-content">
                 {!! $article->content !!}
             </div>
 

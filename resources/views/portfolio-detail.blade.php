@@ -18,8 +18,8 @@
     <section class="relative px-5 lg:px-16 py-12 lg:py-20">
         <div class="max-w-[1280px] mx-auto">
             <div class="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-[#1d2022] border border-[rgba(74,127,199,0.2)]">
-                @if($project->thumbnail_url)
-                    <img src="{{ $project->thumbnail_url }}" 
+                @if($project->formatted_thumbnail_url)
+                    <img src="{{ $project->formatted_thumbnail_url }}" 
                          alt="{{ $project->title }}" 
                          class="w-full h-full object-cover">
                 @else

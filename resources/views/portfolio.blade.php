@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Portfolio Website Makassar - ARWebStudio')
+@section('title', 'Portfolio Website - ARWebStudio')
 @section('meta_description', 'Lihat portfolio website dan aplikasi web yang telah kami buat untuk UMKM dan perusahaan di Makassar. Jasa pembuatan website profesional.')
 
 @section('content')
@@ -22,17 +22,22 @@
             </div>
 
             <!-- ===== FILTER CONTROLS ===== -->
-            <div class="portfolio-filter-bar w-full max-w-3xl mx-auto mt-4">
-                <div class="flex flex-wrap justify-center gap-1.5 sm:gap-2 p-2 sm:p-1.5 bg-[#1d2022] rounded-xl sm:rounded-full border border-white/[0.05]" id="filter-container">
-                    <button class="filter-btn active px-3 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold bg-[#114784] text-[#d5e3ff] transition-all duration-300" data-filter="all">
-                        All Projects
+            <div class="portfolio-filter-bar w-full max-w-4xl mx-auto mt-4">
+                <div class="flex flex-wrap justify-center gap-3" id="filter-container">
+                    <!-- All Projects Card -->
+                    <button class="filter-card active px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl bg-[#F5A623] text-[#0d1b35] transition-all duration-300 hover:scale-105 shadow-lg shadow-[#F5A623]/20" data-filter="all">
+                        <span class="text-xs sm:text-sm font-semibold">All Projects</span>
                     </button>
+                    
                     @php
                         $categories = App\Models\Project::distinct('category')->pluck('category');
                     @endphp
                     @foreach($categories as $category)
-                        <button class="filter-btn px-3 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold text-[#c5c6ce] hover:text-[#e0e3e5] transition-all duration-300" data-filter="{{ strtolower($category) }}">
-                            {{ $category }}
+                        @php
+                            $slug = strtolower($category);
+                        @endphp
+                        <button class="filter-card px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl border-2 border-white/10 bg-[#1d2022]/50 backdrop-blur-sm text-[#c5c6ce] transition-all duration-300 hover:scale-105 hover:border-[#F5A623]/50 hover:bg-[#F5A623]/5" data-filter="{{ $slug }}">
+                            <span class="text-xs sm:text-sm font-semibold">{{ $category }}</span>
                         </button>
                     @endforeach
                 </div>
@@ -50,13 +55,14 @@
                     @endphp
                     <a href="{{ route('portfolio.detail', $project->id) }}" 
                        class="project-card group flex flex-col gap-3 sm:gap-4 rounded-xl p-3 sm:p-4 border border-white/[0.05] hover:border-white/[0.15] hover:bg-[#191c1e] transition-all duration-500 cursor-pointer"
-                       data-category="{{ $categorySlug }}">
+                       data-category="{{ $categorySlug }}"
+                       style="opacity: 0;">
                         
                         <!-- Thumbnail -->
                         <div class="relative aspect-[16/10] overflow-hidden rounded-lg bg-[#272a2c]">
-                            @if($project->thumbnail_url)
+                            @if($project->formatted_thumbnail_url)
                                 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                                     src="{{ $project->thumbnail_url }}" 
+                                     src="{{ $project->formatted_thumbnail_url }}" 
                                      alt="{{ $project->title }}">
                             @else
                                 <div class="w-full h-full flex items-center justify-center bg-[#16233d]">
@@ -117,59 +123,7 @@
     </section>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // ===== FILTER FUNCTIONALITY =====
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        // Initial reveal animation
-        projectCards.forEach((card, index) => {
-            setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 100 + 200);
-        });
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const filterValue = this.getAttribute('data-filter');
-                
-                // Update active state
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active', 'bg-[#114784]', 'text-[#d5e3ff]');
-                    btn.classList.add('text-[#c5c6ce]');
-                });
-                this.classList.add('active', 'bg-[#114784]', 'text-[#d5e3ff]');
-                this.classList.remove('text-[#c5c6ce]');
-
-                // Filter cards with smooth animation
-                projectCards.forEach((card, index) => {
-                    const cardCategory = card.getAttribute('data-category');
-                    
-                    if (filterValue === 'all' || cardCategory === filterValue) {
-                        card.style.display = 'flex';
-                        void card.offsetHeight;
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px) scale(0.96)';
-                        
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0) scale(1)';
-                        }, index * 60);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(15px) scale(0.96)';
-                        
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 400);
-                    }
-                });
-            });
-        });
-    });
-</script>
+{{-- Filter & reveal logic sudah ditangani oleh GSAP di resources/js/animations/portfolio.js --}}
 
 <style>
     /* ===== BASE ===== */
@@ -178,50 +132,49 @@
         text-decoration: none;
         will-change: transform, opacity;
     }
+
     .project-card:hover {
-        transform: translateY(-4px);
+        transform: translateY(-4px) !important;
     }
     
     .aspect-\[16\/10\] {
         aspect-ratio: 16 / 10;
     }
 
-    /* ===== FILTER BUTTONS ===== */
-    .filter-btn {
-        transition: all 0.3s ease;
+    /* ===== FILTER CARD ===== */
+    .filter-card {
         cursor: pointer;
         user-select: none;
-        white-space: nowrap;
+        transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        backdrop-filter: blur(12px);
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        min-width: 80px;
+        text-align: center;
+        background: rgba(29, 32, 34, 0.5);
+        color: #c5c6ce;
     }
-    .filter-btn.active {
-        background: #114784;
-        color: #d5e3ff;
+
+    .filter-card:hover:not(.active) {
+        transform: translateY(-2px) scale(1.02);
+        border-color: rgba(245, 166, 35, 0.4);
+        background: rgba(245, 166, 35, 0.05);
     }
-    .filter-btn:not(.active):hover {
-        color: #e0e3e5;
-        background: rgba(255, 255, 255, 0.05);
+
+    .filter-card.active {
+        background: #F5A623 !important;
+        color: #0d1b35 !important;
+        border-color: #F5A623 !important;
+        box-shadow: 0 8px 30px rgba(245, 166, 35, 0.25) !important;
     }
-    
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 640px) {
-        /* Filter buttons - 3 per baris dengan lebar 31% */
-        .filter-btn {
+        .filter-card {
+            padding: 6px 14px;
             font-size: 10px;
-            padding: 6px 8px;
-            flex: 0 0 calc(33.333% - 6px);
-            text-align: center;
-            justify-content: center;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 0;
+            min-width: 60px;
+            border-radius: 10px;
         }
-        #filter-container {
-            gap: 4px;
-            padding: 8px;
-            border-radius: 12px;
-        }
-        /* Card mobile */
         .project-card {
             padding: 12px;
         }
@@ -230,13 +183,6 @@
         }
         .project-card p {
             font-size: 12px;
-        }
-    }
-    
-    @media (min-width: 641px) and (max-width: 1024px) {
-        .filter-btn {
-            font-size: 12px;
-            padding: 6px 16px;
         }
     }
 </style>

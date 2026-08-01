@@ -293,8 +293,8 @@
                 @forelse($relatedProjects as $project)
                     <a href="{{ route('portfolio.detail', $project->id) }}" class="group cursor-pointer">
                         <div class="aspect-[4/3] overflow-hidden rounded-xl border border-[rgba(74,127,199,0.2)] mb-4">
-                            @if($project->thumbnail_url)
-                                <img src="{{ $project->thumbnail_url }}" 
+                            @if($project->formatted_thumbnail_url)
+                                <img src="{{ $project->formatted_thumbnail_url }}" 
                                     alt="{{ $project->title }}" 
                                     class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105">
                             @else

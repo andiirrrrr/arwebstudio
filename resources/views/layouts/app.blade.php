@@ -42,11 +42,14 @@
     <title>@yield('title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')</title>
     <meta name="description" content="@yield('meta_description', 'ARWebStudio - Jasa pembuatan website profesional di Makassar untuk UMKM, company profile, e-commerce, dan custom web app.')">
     
-    
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&family=Sora:wght@100..900&display=swap" rel="stylesheet">
 
     <style>
@@ -57,6 +60,19 @@
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         .snap-x { scroll-snap-type: x mandatory; }
         .snap-center { scroll-snap-align: center; }
+
+        /* Prevent icon raw text flash (FOUT) before font loads */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            line-height: 1;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
 
         @layer base {
             html, body { margin: 0; padding: 0; }
@@ -183,7 +199,14 @@
     </script>
 
 </head>
-<body class="bg-[#101415] font-['Plus_Jakarta_Sans'] text-[#e0e3e5] antialiased min-h-screen flex flex-col">
+<body class="bg-[#101415] font-['Plus_Jakarta_Sans'] text-[#e0e3e5] antialiased min-h-screen flex flex-col"
+      data-page="{{ request()->routeIs('home') ? 'home' :
+                   (request()->routeIs('services') ? 'services' :
+                   (request()->routeIs('portfolio') ? 'portfolio' :
+                   (request()->routeIs('about') ? 'about' :
+                   (request()->routeIs('faq') ? 'faq' :
+                   (request()->routeIs('contact') ? 'contact' :
+                   (request()->routeIs('service.detail') ? 'service-detail' : 'other')))))) }}">
 
     <!-- ===================== NAVBAR ===================== -->
     <header x-data="{ mobileOpen: false }" class="fixed top-0 w-full z-50 bg-[#101415]/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-[rgba(74,127,199,0.2)]">

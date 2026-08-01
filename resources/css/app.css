@@ -27,4 +27,165 @@
     50% {
         box-shadow: 0 0 40px rgba(245, 166, 35, 0.30), 0 0 80px rgba(245, 166, 35, 0.10);
     }
-}
+}
+
+/* ===== ARTICLE CONTENT STYLING (PROFESSIONAL TYPOGRAPHY) ===== */
+.article-content {
+    color: #c5c6ce;
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.85;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.article-content p {
+    margin-bottom: 1.75rem;
+    color: #c5c6ce;
+    line-height: 1.85;
+}
+
+.article-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Headings */
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+    font-family: 'Sora', sans-serif;
+    color: #e0e3e5;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.article-content h1 { 
+    font-size: 2.25rem; 
+}
+
+.article-content h2 { 
+    font-size: 1.625rem; 
+    border-left: 4px solid #F5A623; 
+    padding-left: 0.875rem;
+    color: #ffffff;
+}
+
+.article-content h3 { 
+    font-size: 1.35rem; 
+    color: #F5A623; 
+}
+
+.article-content h4 { 
+    font-size: 1.15rem; 
+}
+
+/* Bold & Emphasis */
+.article-content strong,
+.article-content b {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.article-content em,
+.article-content i {
+    font-style: italic;
+    color: #d8e2ff;
+}
+
+/* Links */
+.article-content a {
+    color: #F5A623;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.article-content a:hover {
+    color: #ffffff;
+}
+
+/* Lists */
+.article-content ul {
+    list-style-type: disc;
+    padding-left: 1.75rem;
+    margin-bottom: 1.75rem;
+}
+
+.article-content ol {
+    list-style-type: decimal;
+    padding-left: 1.75rem;
+    margin-bottom: 1.75rem;
+}
+
+.article-content li {
+    margin-bottom: 0.625rem;
+    line-height: 1.75;
+}
+
+.article-content li strong {
+    color: #e0e3e5;
+}
+
+/* Blockquote */
+.article-content blockquote {
+    border-left: 4px solid #F5A623;
+    background: rgba(25, 28, 30, 0.6);
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 0.75rem 0.75rem 0;
+    font-style: italic;
+    color: #e0e3e5;
+}
+
+.article-content blockquote p {
+    margin-bottom: 0;
+}
+
+/* Code & Pre */
+.article-content pre {
+    background: #0b0f10;
+    border: 1px solid rgba(74, 127, 199, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 2rem 0;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #a8c8ff;
+}
+
+.article-content code {
+    background: rgba(74, 127, 199, 0.15);
+    color: #F5A623;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* Images */
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    margin: 2rem auto;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .article-content {
+        font-size: 1rem; /* 16px */
+        line-height: 1.75;
+    }
+    .article-content p {
+        margin-bottom: 1.25rem;
+    }
+    .article-content h2 { font-size: 1.35rem; }
+    .article-content h3 { font-size: 1.15rem; }
+}

@@ -10,7 +10,7 @@
             <div class="w-full lg:w-1/2 flex flex-col gap-8">
                 <div class="flex flex-col gap-4">
                     <span class="hero-badge text-sm font-semibold text-[#F5A623] uppercase tracking-[0.2em]">
-                        Jasa Website Profesional di Makassar
+                        Jasa Website Profesional
                     </span>
                     <h1 class="hero-title font-['Sora'] text-[40px] lg:text-[72px] font-bold leading-[48px] lg:leading-[80px] tracking-[-0.02em] text-[#e0e3e5]">
                         Transformasi <span class="text-[#a8c8ff]">Digital</span><br/>
@@ -164,9 +164,9 @@
                     <a href="{{ route('portfolio.detail', $project->id) }}" 
                     class="portfolio-card group relative overflow-hidden rounded-2xl bg-[#191c1e] border border-[rgba(74,127,199,0.15)] hover:border-[#F5A623]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#F5A623]/5">
                         <div class="aspect-[4/3] w-full overflow-hidden bg-[#16233d]">
-                            @if($project->thumbnail_url)
+                            @if($project->formatted_thumbnail_url)
                                 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                                    src="{{ $project->thumbnail_url }}" 
+                                    src="{{ $project->formatted_thumbnail_url }}" 
                                     alt="{{ $project->title }}">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-[#a8c8ff]">
