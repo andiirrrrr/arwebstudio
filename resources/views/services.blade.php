@@ -44,6 +44,7 @@
                             @if($service->thumbnail)
                                 <img src="{{ asset('storage/' . $service->thumbnail) }}" 
                                     alt="{{ $service->name }}" 
+                                    loading="lazy"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-[#a8c8ff]">
@@ -97,6 +98,11 @@
                     <p class="text-[#c5c6ce] col-span-full text-center py-12">Belum ada layanan. Silakan tambahkan di admin panel.</p>
                 @endforelse
             </div>
+
+            <!-- Pagination -->
+            <div class="mt-8">
+                {{ $services->links('vendor.pagination.custom') }}
+            </div>
     </section>
 
     <!-- ===== CTA ===== -->
@@ -133,26 +139,10 @@
 </div>
 
 <style>
-    .dot-pattern {
-        background-image: radial-gradient(rgba(186, 198, 232, 0.05) 1px, transparent 1px);
-        background-size: 32px 32px;
-    }
-    .aspect-\[4\/3\] {
-        aspect-ratio: 4 / 3;
-    }
-    .hero-gradient-text {
-        background: linear-gradient(180deg, #e0e3e5 0%, #7e8aaa 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
     .glass-card {
         background: rgba(25, 28, 30, 0.4);
         backdrop-filter: blur(12px);
         border: 1px solid rgba(74, 127, 199, 0.1);
-    }
-    .thumbnail-container {
-        will-change: transform;
-        transform-style: preserve-3d;
     }
     .glow-pulse {
         animation: glowPulse 3s ease-in-out infinite;

@@ -11,20 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 // UTILITY ANIMATIONS (dijalankan di semua halaman)
 // =====================================================
 function initUtilityAnimations() {
-    // ----- Parallax Backgrounds -----
-    gsap.utils.toArray('.parallax-bg').forEach((el) => {
-        gsap.to(el, {
-            y: 100,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: el,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 1.2
-            }
-        });
-    });
-
     // ----- Floating Badges -----
     gsap.utils.toArray('.float-badge').forEach((el) => {
         gsap.to(el, {
@@ -45,41 +31,6 @@ function initUtilityAnimations() {
             yoyo: true,
             repeat: -1
         });
-    });
-
-    // ----- Scroll Progress Indicator -----
-    const progressBar = document.querySelector('.scroll-progress');
-    if (progressBar) {
-        gsap.to(progressBar, {
-            scaleX: 1,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: document.body,
-                start: 'top top',
-                end: 'bottom bottom',
-                scrub: 1,
-                onUpdate: (self) => {
-                    progressBar.style.transform = `scaleX(${self.progress})`;
-                }
-            }
-        });
-    }
-
-    // ----- Number Counter -----
-    const counters = document.querySelectorAll('.counter-number');
-    counters.forEach((counter) => {
-        const target = parseInt(counter.dataset.target);
-        if (!target) return;
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(counter, target, 2000);
-                    observer.unobserve(counter);
-                }
-            });
-        }, { threshold: 0.5 });
-        observer.observe(counter);
     });
 
     // ----- GSAP Reveal (generic utility class) -----
@@ -118,24 +69,6 @@ function initUtilityAnimations() {
             }
         );
     });
-}
-
-// ===== HELPER: Animate Counter =====
-function animateCounter(element, target, duration) {
-    const startTime = Date.now();
-    const update = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(eased * target);
-        element.textContent = current.toLocaleString('id-ID');
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        } else {
-            element.textContent = target.toLocaleString('id-ID');
-        }
-    };
-    requestAnimationFrame(update);
 }
 
 // =====================================================

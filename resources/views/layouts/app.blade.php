@@ -339,6 +339,8 @@
                     <a href="/" class="text-[#c5c6ce] hover:text-[#F5A623] transition">Beranda</a>
                     <a href="/portofolio" class="text-[#c5c6ce] hover:text-[#F5A623] transition">Portfolio</a>
                     <a href="/tentang" class="text-[#c5c6ce] hover:text-[#F5A623] transition">Tentang</a>
+                    <a href="/blog" class="text-[#c5c6ce] hover:text-[#F5A623] transition">Blog</a>
+                    <a href="/faq" class="text-[#c5c6ce] hover:text-[#F5A623] transition">FAQ</a>
                     <a href="/kontak" class="text-[#c5c6ce] hover:text-[#F5A623] transition">Kontak</a>
                 </nav>
             </div>
@@ -353,7 +355,7 @@
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="text-sm font-semibold text-[#e0e3e5] uppercase tracking-widest">Kontak</h4>
-                <p class="text-[#c5c6ce]">Makassar, Indonesia<br/>halo@arwebstudio.id<br/>085922107678</p>
+                <p class="text-[#c5c6ce]">Makassar, Indonesia<br/>arwebstudio@gmail.com<br/>085922107678</p>
             </div>
         </div>
         <div class="max-w-[1280px] mx-auto px-5 lg:px-16 mt-4 pt-4 border-t border-[rgba(74,127,199,0.2)] text-center text-sm text-[#c5c6ce] translate-y-4">

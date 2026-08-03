@@ -66,7 +66,8 @@
                             @if($project->formatted_thumbnail_url)
                                 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                                      src="{{ $project->formatted_thumbnail_url }}" 
-                                     alt="{{ $project->title }}">
+                                     alt="{{ $project->title }}"
+                                     loading="lazy">
                             @else
                                 <div class="w-full h-full flex items-center justify-center bg-[#16233d]">
                                     <span class="material-symbols-outlined text-[40px] sm:text-[60px] text-[#a8c8ff]/30">image</span>
@@ -101,6 +102,11 @@
                 @empty
                     <p class="text-[#c5c6ce] col-span-full text-center py-12">Belum ada project. Silakan tambahkan di admin panel.</p>
                 @endforelse
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-8">
+                {{ $projects->links('vendor.pagination.custom') }}
             </div>
         </div>
     </section>

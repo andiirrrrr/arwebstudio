@@ -60,7 +60,7 @@
                             <div class="pt-1">
                                 <p class="text-xs font-bold text-[#a8c8ff] uppercase tracking-[0.15em] mb-1">Email</p>
                                 <a href="mailto:halo@arwebstudio.id" class="text-[15px] text-[#ffffff] hover:text-[#a8c8ff] transition-colors font-medium">
-                                    halo@arwebstudio.id
+                                    arwebstudio@gmail.com
                                 </a>
                             </div>
                         </div>

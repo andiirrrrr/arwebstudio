@@ -21,6 +21,7 @@
                 @if($project->formatted_thumbnail_url)
                     <img src="{{ $project->formatted_thumbnail_url }}" 
                          alt="{{ $project->title }}" 
+                         loading="lazy"
                          class="w-full h-full object-cover">
                 @else
                     <div class="w-full h-full flex items-center justify-center">

@@ -4,7 +4,7 @@
         <div class="text-[11px] sm:text-xs text-[#c5c6ce]/50 font-mono text-center">
             Menampilkan <span class="text-[#e0e3e5] font-semibold">{{ $paginator->firstItem() }}</span> - 
             <span class="text-[#e0e3e5] font-semibold">{{ $paginator->lastItem() }}</span> dari 
-            <span class="text-[#e0e3e5] font-semibold">{{ $paginator->total() }}</span> artikel
+            <span class="text-[#e0e3e5] font-semibold">{{ $paginator->total() }}</span> data
         </div>
 
         <!-- Pagination Bar -->

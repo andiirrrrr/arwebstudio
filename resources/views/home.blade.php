@@ -82,6 +82,7 @@
                             @if($service->thumbnail)
                                 <img src="{{ asset('storage/' . $service->thumbnail) }}" 
                                     alt="{{ $service->name }}" 
+                                    loading="lazy"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-[#a8c8ff]">
@@ -169,7 +170,8 @@
                             @if($project->formatted_thumbnail_url)
                                 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                                     src="{{ $project->formatted_thumbnail_url }}" 
-                                    alt="{{ $project->title }}">
+                                    alt="{{ $project->title }}"
+                                    loading="lazy">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-[#a8c8ff]">
                                     <span class="material-symbols-outlined text-6xl opacity-30">image</span>

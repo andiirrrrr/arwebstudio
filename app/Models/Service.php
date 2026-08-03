@@ -52,8 +52,8 @@ class Service extends Model
     // ===== ATRIBUT DINAMIS =====
     public function getStartingPriceAttribute()
     {
-        // 1. Cari harga minimum dari service_prices
-        $minPrice = $this->servicePrices()->min('price');
+        // 1. Cari harga minimum dari service_prices yang aktif
+        $minPrice = $this->servicePrices()->where('is_active', true)->min('price');
         if ($minPrice !== null) {
             return $minPrice;
         }

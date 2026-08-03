@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use App\Models\Project;
-use App\Models\CustomAppOffering;
 use App\Models\Testimonial;
 use App\Models\Package;
 use App\Models\ServicePrice;
@@ -28,24 +27,8 @@ class PageController extends Controller
 
     public function services()
     {
-        $services = Service::all();
-        
-        $heroData = [
-            'badge_text' => 'Layanan Utama',
-            'title' => 'Rekayasa Untuk Skala Eksponensial.',
-            'subtitle' => 'Skala Eksponensial.',
-            'uptime_text' => '99.9%',
-            'uptime_label' => 'Uptime Guarantee',
-            'hero_description' => 'Kami tidak hanya membangun website; kami merekayasa infrastruktur digital yang siap menghadapi lonjakan traffic seketika. Menggunakan tech-stack modern untuk menjamin kecepatan, keamanan, dan skalabilitas.',
-            'tech_stack_fast' => 'Next.js & React',
-            'tech_stack_secure' => 'SSL & Auth0',
-            'cta_title' => 'Siap Untuk Meningkatkan Skala Bisnis Anda?',
-            'cta_description' => 'Dapatkan konsultasi gratis selama 30 menit dengan tim engineering kami untuk membahas roadmap digital Anda.',
-            'cta_primary_btn' => 'Mulai Proyek Sekarang',
-            'cta_secondary_btn' => 'Lihat Portfolio Kami',
-        ];
-        
-        return view('services', compact('services', 'heroData'));
+        $services = Service::paginate(12);
+        return view('services', compact('services'));
     }
 
     public function serviceDetail($id)
@@ -79,7 +62,7 @@ class PageController extends Controller
 
     public function portfolio()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(12);
         return view('portfolio', compact('projects'));
     }
 

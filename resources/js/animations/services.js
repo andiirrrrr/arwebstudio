@@ -3,7 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function servicesAnimations() {
     // ----- Stagger Cards -----
-    const serviceCards = document.querySelectorAll('.stagger-card');
+    const serviceCards = document.querySelectorAll('.service-card');
     serviceCards.forEach((card, index) => {
         gsap.fromTo(card,
             {

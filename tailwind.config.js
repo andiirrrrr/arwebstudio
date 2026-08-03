@@ -16,7 +16,6 @@ module.exports = {
             },
             fontFamily: {
                 sora: ['Sora', 'sans-serif'],
-                inter: ['Inter', 'sans-serif'],
             },
         },
     },
