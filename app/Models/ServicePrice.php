@@ -19,6 +19,7 @@ class ServicePrice extends Model
         'hosting',
         'domain',
         'is_featured',
+        'is_active',
         'features',
     ];
 
@@ -27,6 +28,7 @@ class ServicePrice extends Model
         'hosting' => 'boolean',
         'domain' => 'boolean',
         'is_featured' => 'boolean',
+        'is_active' => 'boolean',
         'estimated_days' => 'integer',
         'page_limit' => 'integer',
         'revision_limit' => 'integer',

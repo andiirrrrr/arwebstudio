@@ -4,13 +4,18 @@
 @section('meta_description', 'Artikel dan tips seputar pembuatan website, digital marketing, dan teknologi dari ARWebStudio.')
 
 @section('content')
+    <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY ===== -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+        <div class="absolute top-40 left-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Article</div>
+        <div class="absolute top-[1200px] right-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Solutions</div>
+        <div class="absolute top-[2400px] left-1/2 -translate-x-1/2 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
+    </div>
 <div class="flex flex-col w-full bg-[#101415]">
 
     <!-- ===== HERO ===== -->
     <section class="relative px-5 lg:px-16 py-16 lg:py-24 overflow-hidden">
         <div class="max-w-[1280px] mx-auto">
             <div class="flex flex-col items-center text-center gap-4">
-                <span class="text-sm font-semibold text-[#F5A623] uppercase tracking-[0.3em]">Blog</span>
                 <h1 class="font-['Sora'] text-[32px] lg:text-[56px] font-bold leading-[40px] lg:leading-[64px] text-[#e0e3e5]">
                     Artikel & <span class="text-[#a8c8ff]">Tips</span>
                 </h1>

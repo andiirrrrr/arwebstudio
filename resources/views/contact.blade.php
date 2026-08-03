@@ -59,7 +59,7 @@
                             </div>
                             <div class="pt-1">
                                 <p class="text-xs font-bold text-[#a8c8ff] uppercase tracking-[0.15em] mb-1">Email</p>
-                                <a href="mailto:halo@arwebstudio.id" class="text-[15px] text-[#F5A623] hover:text-[#a8c8ff] transition-colors font-medium">
+                                <a href="mailto:halo@arwebstudio.id" class="text-[15px] text-[#ffffff] hover:text-[#a8c8ff] transition-colors font-medium">
                                     halo@arwebstudio.id
                                 </a>
                             </div>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="pt-1">
                                 <p class="text-xs font-bold text-[#a8c8ff] uppercase tracking-[0.15em] mb-1">Telepon / WhatsApp</p>
-                                <a href="https://wa.me/6285922107678" target="_blank" class="text-[15px] text-[#F5A623] hover:text-[#a8c8ff] transition-colors font-medium">
+                                <a href="https://wa.me/6285922107678" target="_blank" class="text-[15px] text-[#ffffff] hover:text-[#a8c8ff] transition-colors font-medium">
                                     0859-2210-7678
                                 </a>
                             </div>

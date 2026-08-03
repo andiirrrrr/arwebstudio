@@ -4,6 +4,13 @@
 @section('meta_description', 'ARWebStudio adalah jasa pembuatan website profesional di Makassar. Kami melayani landing page, company profile, e-commerce, dan custom web app untuk UMKM dan perusahaan di Makassar dan sekitarnya.')
 
 @section('content')
+    <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY ===== -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+        <div class="absolute top-40 left-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Solutions</div>
+        <div class="absolute top-[1200px] right-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Solutions</div>
+        <div class="absolute top-[2400px] left-1/2 -translate-x-1/2 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
+    </div>
+
     <!-- ===== HERO ===== -->
     <section class="relative px-5 lg:px-16 py-[120px] overflow-hidden">
         <div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center gap-6 relative z-10">
@@ -151,11 +158,6 @@
                         Portfolio <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#e0e3e5] via-[#d8e2ff] to-[#a8c8ff]">Terpilih</span>
                     </h2>
                 </div>
-                <a href="{{ route('portfolio') }}" 
-                class="hidden sm:flex items-center gap-2 text-[#e0e3e5] hover:text-[#F5A623] transition-colors font-semibold text-sm group">
-                    Semua Proyek
-                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </a>
             </div>
 
             <!-- Portfolio Grid -->
@@ -185,6 +187,14 @@
                 @empty
                     <p class="text-[#c5c6ce] col-span-full text-center py-12">Belum ada project. Silakan tambahkan di admin panel.</p>
                 @endforelse
+            </div>
+            <!-- View All Button -->
+            <div class="text-center mt-12">
+                <a href="{{ route('portfolio') }}" 
+                class="inline-flex items-center gap-2 border border-[rgba(74,127,199,0.3)] text-[#e0e3e5] px-8 py-3 rounded-full font-medium text-sm hover:bg-[#1E2E4D] hover:border-[#F5A623]/50 transition-all duration-300 group">
+                    Lihat Semua Proyek
+                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
             </div>
         </div>
     </section>

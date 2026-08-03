@@ -66,11 +66,12 @@
     </section>
 
     <!-- ===== 2. PRICING PACKAGE SECTION ===== -->
+    @if($servicePrices->count() > 0)
     <section class="w-full py-[120px] bg-[#191c1e] border-y border-[rgba(74,127,199,0.2)]">
         <div class="max-w-[1280px] mx-auto px-5 lg:px-16">
             <div class="flex flex-col items-center text-center mb-20">
                 <h2 class="font-['Sora'] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] text-[#e0e3e5]">Paket Layanan</h2>
-                <span>Pilih paket yang paling sesuai dengan kebutuhan website Anda</span>
+                <span class="text-[#c5c6ce]">Pilih paket yang paling sesuai dengan kebutuhan website Anda</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @forelse($servicePrices as $index => $price)
@@ -170,6 +171,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     <!-- ===== 3. HOW WE BUILD SECTION ===== -->
     @if($service->workflow)

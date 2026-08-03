@@ -4,15 +4,18 @@
 @section('meta_description', 'Lihat portfolio website dan aplikasi web yang telah kami buat untuk UMKM dan perusahaan di Makassar. Jasa pembuatan website profesional.')
 
 @section('content')
+    <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY ===== -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+        <div class="absolute top-40 left-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
+        <div class="absolute top-[1200px] right-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Solutions</div>
+        <div class="absolute top-[2400px] left-1/2 -translate-x-1/2 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
+    </div>
+    
 <div class="flex flex-col w-full bg-[#101415]">
     <!-- ===== HEADER SECTION ===== -->
     <section class="relative px-5 lg:px-16 py-16 lg:py-24">
         <div class="max-w-[1280px] mx-auto flex flex-col items-center text-center gap-6">
             <div class="flex flex-col gap-2 items-center">
-                <div class="flex items-center gap-2">
-                    <span class="w-8 h-[2px] bg-[#F5A623]"></span>
-                    <span class="portfolio-hero-badge text-sm font-semibold text-[#F5A623] uppercase tracking-[0.3em]">KEUNGGULAN DALAM EKSEKUSI</span>
-                </div>
                 <h1 class="portfolio-hero-title font-['Sora'] text-[40px] lg:text-[72px] font-bold leading-[48px] lg:leading-[80px] text-[#e0e3e5] mt-2">
                     Karya <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#e0e3e5] via-[#c5c6ce] to-[#a8c8ff]">Pilihan.</span>
                 </h1>
@@ -91,7 +94,7 @@
                                 <p class="text-[#c5c6ce] text-xs sm:text-[16px] leading-relaxed opacity-80">{{ Str::limit($project->description, 60) }}</p>
                             @endif
                             @if($project->client_name)
-                                <p class="text-[#c5c6ce] text-[10px] sm:text-sm opacity-60">Client: {{ $project->client_name }}</p>
+                                <p class="text-[#c5c6ce] text-[10px] sm:text-sm opacity-60">Klien: {{ $project->client_name }}</p>
                             @endif
                         </div>
                     </a>

@@ -304,6 +304,26 @@
         @yield('content')
     </main>
 
+    <!-- ===================== FLOATING ACTION BUTTONS (KANAN BAWAH) ===================== -->
+    <div class="fixed z-[9999] flex flex-col items-center gap-3" style="position: fixed !important; bottom: 24px !important; right: 24px !important; z-index: 9999 !important;">
+        <!-- SCROLL TO TOP BUTTON (atas) -->
+        <button x-data="{ show: false }"
+                x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })"
+                x-show="show"
+                x-cloak
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-4 scale-90"
+                x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                x-transition:leave-end="opacity-0 translate-y-4 scale-90"
+                @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+                class="w-14 h-14 rounded-full bg-[#F5A623] hover:bg-white text-[#0d1b35] flex items-center justify-center shadow-xl shadow-black/50 hover:scale-110 active:scale-95 transition-all duration-300"
+                aria-label="Kembali ke atas">
+            <span class="material-symbols-outlined text-2xl sm:text-3xl font-bold">arrow_upward</span>
+        </button>
+    </div>
+
     <!-- ===================== FOOTER ===================== -->
     <footer class="w-full bg-[#0b0f10] py-20 border-t border-[rgba(74,127,199,0.2)]">
         <div class="max-w-[1280px] mx-auto px-5 lg:px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-6">
@@ -336,7 +356,7 @@
                 <p class="text-[#c5c6ce]">Makassar, Indonesia<br/>halo@arwebstudio.id<br/>085922107678</p>
             </div>
         </div>
-        <div class="max-w-[1280px] mx-auto px-5 lg:px-16 mt-4 pt-4 border-t border-[rgba(74,127,199,0.2)] text-center text-sm text-[#c5c6ce]">
+        <div class="max-w-[1280px] mx-auto px-5 lg:px-16 mt-4 pt-4 border-t border-[rgba(74,127,199,0.2)] text-center text-sm text-[#c5c6ce] translate-y-4">
             &copy; {{ date('Y') }} ARWebStudio.id. Seluruh hak cipta dilindungi.
         </div>
     </footer>

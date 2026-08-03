@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Components\Repeater;
+use Filament\Tables\Columns\IconColumn;
 
 class ServicePriceResource extends Resource
 {
@@ -68,6 +69,10 @@ class ServicePriceResource extends Resource
                             ->label('Termasuk Domain'),
                         Toggle::make('is_featured')
                             ->label('Unggulan'),
+                        Toggle::make('is_active')
+                            ->label('Aktif')
+                            ->default(true)
+                            ->helperText('Jika nonaktif, paket ini tidak akan tampil di halaman publik'),
                         
                         // ===== PERBAIKAN =====
                         Repeater::make('features')
@@ -147,6 +152,16 @@ class ServicePriceResource extends Resource
                     ->label('Dibuat')
                     ->dateTime('d M Y')
                     ->sortable(),
+                IconColumn::make('is_active')
+                    ->label('Status')
+                    ->boolean()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor('success')
+                    ->falseColor('danger')
+                    ->action(function ($record) {
+                        $record->update(['is_active' => !$record->is_active]);
+                    }),
             ])
             ->defaultSort('service_id')
             ->filters([

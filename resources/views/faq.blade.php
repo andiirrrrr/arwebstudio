@@ -10,7 +10,6 @@
     <section class="relative px-5 lg:px-16 py-24 lg:py-32 overflow-hidden border-b border-[rgba(74,127,199,0.2)]">
         <div class="max-w-[1280px] mx-auto relative z-10">
             <div class="flex flex-col items-center text-center gap-4">
-                <span class="faq-hero-badge text-sm font-semibold text-[#F5A623] uppercase tracking-[0.3em]">Support Center</span>
                 <h1 class="faq-hero-title font-['Sora'] text-[40px] lg:text-[72px] font-bold leading-[48px] lg:leading-[80px] text-[#e0e3e5] max-w-4xl">
                     Pertanyaan Umum <span class="text-[#a8c8ff]">(FAQ)</span>
                 </h1>
@@ -65,11 +64,28 @@
                     <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out overflow-hidden">
                         <div class="px-6 lg:px-8 pb-6 lg:pb-8">
                             <p class="text-[16px] text-[#c5c6ce] border-t border-[rgba(74,127,199,0.2)] pt-6 leading-relaxed">
-                                Biaya yang tertera adalah biaya pengembangan (development fee). Kami memberikan bantuan setup hosting dan domain secara gratis, namun biaya langganan tahunan ke provider hosting (seperti Niagahoster, Vercel, atau Google Cloud) dibayarkan langsung oleh klien atau melalui sistem penagihan terpisah untuk memastikan kepemilikan aset tetap di tangan Anda.
+                                Biaya yang tertera adalah biaya pengembangan (development fee). Kami menyediakan hosting dan domain gratis untuk 1 tahun pertama. Setelah masa tersebut, biaya perpanjangan langganan ke provider hosting (seperti Niagahoster, Vercel, atau Google Cloud) dibayarkan langsung oleh klien atau melalui sistem penagihan terpisah, untuk memastikan kepemilikan aset tetap di tangan Anda.
                             </p>
                         </div>
                     </div>
                 </div>
+
+                <div class="faq-item bg-[#191c1e] rounded-2xl border border-[rgba(74,127,199,0.2)] overflow-hidden group transition-all duration-300 hover:border-[#a8c8ff]/50">
+                    <button class="w-full p-6 lg:p-8 flex items-center justify-between gap-4 text-left transition-colors" onclick="toggleFaq(this)">
+                        <span class="font-['Sora'] text-base lg:text-2xl font-semibold text-[#e0e3e5]">Berapa harga websitenya?</span>
+                        <div class="w-10 h-10 rounded-full bg-[#1E2E4D] flex items-center justify-center transition-transform duration-300 group-data-[active=true]:rotate-180 group-data-[active=true]:bg-[#a8c8ff] flex-shrink-0">
+                            <span class="material-symbols-outlined text-[#e0e3e5] text-lg group-data-[active=true]:text-[#0d1b35]">expand_more</span>
+                        </div>
+                    </button>
+                    <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out overflow-hidden">
+                        <div class="px-6 lg:px-8 pb-6 lg:pb-8">
+                            <p class="text-[16px] text-[#c5c6ce] border-t border-[rgba(74,127,199,0.2)] pt-6 leading-relaxed">
+                                Harga website kami disesuaikan dengan kebutuhan, fitur, dan kompleksitas fungsi yang diinginkan. Untuk mendapatkan penawaran yang akurat, silakan hubungi kami terlebih dahulu untuk sesi konsultasi gratis mengenai kebutuhan proyek Anda.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
 
                 <!-- FAQ 3 -->
                 <div class="faq-item bg-[#191c1e] rounded-2xl border border-[rgba(74,127,199,0.2)] overflow-hidden group transition-all duration-300 hover:border-[#a8c8ff]/50">
@@ -288,7 +304,6 @@
                     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#F5A623] rounded-full blur-[160px] translate-y-1/2"></div>
                 </div>
                 <div class="relative z-10 flex flex-col gap-4 max-w-3xl">
-                    <span class="text-sm font-semibold text-[#F5A623] uppercase tracking-[0.2em]">Ready to start?</span>
                     <h2 class="font-['Sora'] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] text-[#d5e3ff]">Siap Memulai Perjalanan Digital Anda?</h2>
                     <p class="text-[18px] leading-[28px] text-[#c5c6ce] opacity-90">
                         Punya pertanyaan khusus yang belum terjawab di atas? Jangan ragu untuk mendiskusikan visi Anda langsung dengan tim ahli kami.

@@ -57,6 +57,7 @@ class PageController extends Controller
         })->get();
         
         $servicePrices = ServicePrice::where('service_id', $id)
+           ->where('is_active', true)
             ->with('package')
             ->orderBy('price')
             ->get();
