@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function aboutAnimations() {
-    // ----- Hero Entrance -----
+    // ----- Hero Entrance (Immediate on load) -----
     const aboutHeroTitle       = document.querySelector('.about-hero-title');
     const aboutHeroDesc        = document.querySelector('.about-hero-desc');
     const aboutHeroTags        = document.querySelector('.about-hero-tags');
@@ -10,36 +10,36 @@ export function aboutAnimations() {
     const aboutFloatingBadge   = document.querySelector('.about-floating-badge');
 
     if (aboutHeroTitle) {
-        const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1 } });
+        const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.8, force3D: true } });
         tl.fromTo(aboutHeroTitle,
-            { opacity: 0, x: -50, filter: 'blur(6px)' },
-            { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1 }
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0 }
         );
         if (aboutHeroDesc) {
             tl.fromTo(aboutHeroDesc,
-                { opacity: 0, y: 30, filter: 'blur(4px)' },
-                { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8 },
-                '-=0.6'
-            );
-        }
-        if (aboutHeroTags) {
-            tl.fromTo(aboutHeroTags,
                 { opacity: 0, y: 20 },
                 { opacity: 1, y: 0, duration: 0.6 },
                 '-=0.4'
             );
         }
+        if (aboutHeroTags) {
+            tl.fromTo(aboutHeroTags,
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, duration: 0.5 },
+                '-=0.3'
+            );
+        }
         if (aboutHeroImage) {
             tl.fromTo(aboutHeroImage,
-                { opacity: 0, x: 60, scale: 0.93, filter: 'blur(8px)' },
-                { opacity: 1, x: 0, scale: 1, filter: 'blur(0px)', duration: 1.1 },
-                '-=1'
+                { opacity: 0, y: 30, scale: 0.96 },
+                { opacity: 1, y: 0, scale: 1, duration: 0.8 },
+                '-=0.7'
             );
         }
         if (aboutFloatingBadge) {
             tl.fromTo(aboutFloatingBadge,
-                { opacity: 0, y: 30, scale: 0.9 },
-                { opacity: 1, y: 0, scale: 1, duration: 0.6 },
+                { opacity: 0, y: 20, scale: 0.9 },
+                { opacity: 1, y: 0, scale: 1, duration: 0.5 },
                 '-=0.3'
             );
         }
@@ -51,14 +51,16 @@ export function aboutAnimations() {
 
     if (visiCard) {
         gsap.fromTo(visiCard,
-            { opacity: 0, y: 60, scale: 0.95, filter: 'blur(4px)' },
+            { opacity: 0, y: 40, scale: 0.97 },
             {
-                opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-                duration: 1,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.7,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: visiCard,
-                    start: 'top 85%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -67,15 +69,17 @@ export function aboutAnimations() {
 
     if (misiCard) {
         gsap.fromTo(misiCard,
-            { opacity: 0, y: 80, scale: 0.95, filter: 'blur(4px)' },
+            { opacity: 0, y: 40, scale: 0.97 },
             {
-                opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-                duration: 1,
-                delay: 0.2,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.7,
+                delay: 0.1,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: misiCard,
-                    start: 'top 85%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -86,15 +90,17 @@ export function aboutAnimations() {
     const valueCards = document.querySelectorAll('.about-value-card');
     valueCards.forEach((card, index) => {
         gsap.fromTo(card,
-            { opacity: 0, y: 50, scale: 0.95, filter: 'blur(4px)' },
+            { opacity: 0, y: 35, scale: 0.97 },
             {
-                opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-                duration: 0.8,
-                delay: index * 0.12,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.6,
+                delay: (index % 2) * 0.08,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top 88%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }

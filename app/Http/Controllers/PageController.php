@@ -46,9 +46,8 @@ class PageController extends Controller
             ->get();
         
         // ===== TAMBAHKAN INI =====
-        // Cari project terkait berdasarkan kategori
+        // Cari project terkait berdasarkan kategori (LIKE MySQL sudah case-insensitive)
         $relatedProjects = Project::where('category', 'LIKE', '%' . $service->name . '%')
-            ->orWhere('category', 'LIKE', '%' . strtolower($service->name) . '%')
             ->take(2)
             ->get();
         

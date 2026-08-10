@@ -62,7 +62,7 @@
                         <div class="relative w-full h-full border-2 border-[#F5A623] rounded-full flex items-center justify-center text-[#F5A623] font-['Sora'] text-4xl font-bold">01</div>
                     </div>
                     <h2 class="font-['Sora'] text-[30px] lg:text-[48px] font-semibold leading-[38px] lg:leading-[56px] text-[#e0e3e5]">Visi Strategis</h2>
-                    <p class="text-[18px] leading-[28px] text-[#c5c6ce] leading-relaxed">
+                    <p class="text-[18px] leading-[28px] text-[#c5c6ce]">
                         Menjadi mitra teknologi terpercaya bagi UMKM dan perusahaan di Indonesia dengan memanfaatkan kekuatan AI dan Full Stack development untuk menciptakan solusi digital yang inovatif, cepat, dan terjangkau.
                     </p>
                 </div>
@@ -74,7 +74,7 @@
                         <div class="relative w-full h-full border-2 border-[#a8c8ff] rounded-full flex items-center justify-center text-[#a8c8ff] font-['Sora'] text-4xl font-bold">02</div>
                     </div>
                     <h2 class="font-['Sora'] text-[30px] lg:text-[48px] font-semibold leading-[38px] lg:leading-[56px] text-[#e0e3e5]">Misi Eksekusi</h2>
-                    <p class="text-[18px] leading-[28px] text-[#c5c6ce] leading-relaxed">
+                    <p class="text-[18px] leading-[28px] text-[#c5c6ce]">
                         Memberikan keunggulan kompetitif bagi klien kami melalui integrasi AI dalam proses development, keamanan berlapis, dan desain yang mengutamakan kepuasan pengguna akhir dengan efisiensi waktu dan biaya.
                     </p>
                 </div>
@@ -173,7 +173,7 @@
                         <div class="absolute -inset-1 bg-gradient-to-r from-[#F5A623]/20 to-transparent rounded-[24px] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                         <div class="relative bg-[#1d2022]/60 backdrop-blur-sm border border-white/5 rounded-[24px] p-8 lg:p-12 h-full flex flex-col gap-10">
                             <div class="flex justify-between items-start">
-                                <span class="font-mono text-[10px] text-[#F5A623]/60 tracking-tighter">INFRASTRUCTURE</span>
+                                <span class="font-mono text-[10px] text-[#F5A623]/60 tracking-tighter">SERVER-SIDE</span>
                                 <span class="material-symbols-outlined text-[#F5A623] opacity-40">hub</span>
                             </div>
                             <div>
@@ -212,7 +212,11 @@
                     <!-- Frontend -->
                     <div class="relative group lg:mt-24">
                         <div class="absolute -inset-1 bg-gradient-to-r from-[#a8c8ff]/20 to-transparent rounded-[24px] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                        <div class="relative bg-[#1d2022]/60 backdrop-blur-sm border border-white/5 rounded-[24px] p-8 lg:p-12 h-full flex flex-col gap-10 bg-[#1d2022]/80">
+                        <div class="relative bg-[#1d2022]/60 backdrop-blur-sm border border-white/5 rounded-[24px] p-8 lg:p-12 h-full flex flex-col gap-10">
+                            <div class="flex justify-between items-start">
+                                <span class="font-mono text-[10px] text-[#F5A623]/60 tracking-tighter">CLIENT-SIDE</span>
+                                <span class="material-symbols-outlined text-[#F5A623] opacity-40">hub</span>
+                            </div>
                             <div>
                                 <h3 class="font-['Sora'] text-[30px] font-semibold text-[#e0e3e5]">Frontend &amp; UI</h3>
                                 <p class="text-[#c5c6ce] text-[16px] max-w-sm mt-2">Antarmuka modern dengan performa tinggi, dioptimalkan untuk Core Web Vitals dan SEO.</p>
@@ -332,25 +336,6 @@
     </section>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-12');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section > div, .bg-\\[\\#1d2022\\]\\/60, .flex.flex-col.gap-6.p-12').forEach(el => {
-            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-12', 'ease-out');
-            observer.observe(el);
-        });
-    });
-</script>
-
 <style>
     /* ===== ANIMATIONS ===== */
     @keyframes spin {
@@ -359,9 +344,11 @@
     }
     .animate-spin-slow {
         animation: spin 20s linear infinite;
+        will-change: transform;
     }
     .animate-spin-slower {
         animation: spin 10s linear infinite reverse;
+        will-change: transform;
     }
     
     /* ===== GLASS CARD ===== */

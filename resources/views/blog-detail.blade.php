@@ -58,7 +58,7 @@
 
             <!-- Content -->
             <div class="mt-8 article-content">
-                {!! $article->content !!}
+                {!! sanitize_html($article->content) !!}
             </div>
 
             <!-- Share -->

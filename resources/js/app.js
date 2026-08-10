@@ -7,6 +7,9 @@ window.Alpine = Alpine;
 Alpine.start();
 gsap.registerPlugin(ScrollTrigger);
 
+// Force GPU compositing for all GSAP animations globally
+gsap.defaults({ force3D: true });
+
 // =====================================================
 // UTILITY ANIMATIONS (dijalankan di semua halaman)
 // =====================================================
@@ -18,7 +21,8 @@ function initUtilityAnimations() {
             duration: 2,
             ease: 'sine.inOut',
             yoyo: true,
-            repeat: -1
+            repeat: -1,
+            force3D: true
         });
     });
 
@@ -37,11 +41,12 @@ function initUtilityAnimations() {
     const gsapReveals = document.querySelectorAll('.gsap-reveal');
     gsapReveals.forEach((el) => {
         gsap.fromTo(el,
-            { opacity: 0, y: 60, filter: 'blur(6px)' },
+            { opacity: 0, y: 60 },
             {
-                opacity: 1, y: 0, filter: 'blur(0px)',
+                opacity: 1, y: 0,
                 duration: 1.2,
                 ease: 'power3.out',
+                force3D: true,
                 scrollTrigger: {
                     trigger: el,
                     start: 'top 85%',
@@ -55,12 +60,13 @@ function initUtilityAnimations() {
     const quoteTexts = document.querySelectorAll('.quote-text');
     quoteTexts.forEach((el, index) => {
         gsap.fromTo(el,
-            { opacity: 0, x: 30, scale: 0.95, filter: 'blur(4px)' },
+            { opacity: 0, x: 30, scale: 0.95 },
             {
-                opacity: 1, x: 0, scale: 1, filter: 'blur(0px)',
+                opacity: 1, x: 0, scale: 1,
                 duration: 1.2,
                 delay: 0.5 + (index * 0.2),
                 ease: 'power3.out',
+                force3D: true,
                 scrollTrigger: {
                     trigger: el,
                     start: 'top 85%',
@@ -113,8 +119,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // =====================================================
-// REFRESH SCROLLTRIGGER SAAT RESIZE
+// DEBOUNCED REFRESH SCROLLTRIGGER SAAT RESIZE
 // =====================================================
+let resizeTimer;
 window.addEventListener('resize', () => {
-    ScrollTrigger.refresh();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 200);
 });

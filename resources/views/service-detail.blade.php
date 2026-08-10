@@ -31,7 +31,7 @@
                     </p>
                 @endif
                 <div class="flex gap-4 mt-4">
-                    <a href="https://wa.me/6285922107678?text={{ urlencode('Halo ARWebStudio, saya tertarik dengan layanan ' . $service->name . '. Saya ingin berkonsultasi lebih lanjut.') }}" 
+                    <a href="{{ whatsapp_link('Halo ARWebStudio, saya tertarik dengan layanan ' . $service->name . '. Saya ingin berkonsultasi lebih lanjut.') }}" 
                     target="_blank"
                     class="bg-[#F5A623] text-[#101415] font-semibold text-sm px-6 py-4 rounded-full hover:scale-105 transition-transform flex items-center gap-2">
                         Konsultasi Sekarang
@@ -85,9 +85,8 @@
                                 $features = $raw;
                             }
                         }
-                        $waNumber = '6285922107678';
                         $waMessage = 'Halo ARWebStudio, saya tertarik dengan layanan ' . $service->name . ' - Paket ' . $price->package->name . '. Saya ingin berkonsultasi lebih lanjut.';
-                        $waUrl = 'https://wa.me/' . $waNumber . '?text=' . urlencode($waMessage);
+                        $waUrl = whatsapp_link($waMessage);
                     @endphp
                     <div class="bg-[#101415] border {{ $isPopular ? 'border-[#F5A623] shadow-2xl scale-105' : 'border-[rgba(74,127,199,0.2)]' }} p-6 rounded-xl flex flex-col gap-4 hover:border-[#F5A623]/50 transition-colors relative">
                         @if($isPopular)
@@ -318,29 +317,5 @@
     </section>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section > div, section h1, section h2').forEach((el) => {
-            if (!el.classList.contains('absolute') && !el.classList.contains('fixed')) {
-                el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
-                observer.observe(el);
-            }
-        });
-    });
-</script>
 
 @endsection

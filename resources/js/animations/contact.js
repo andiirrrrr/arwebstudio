@@ -2,22 +2,22 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function contactAnimations() {
-    // ----- Contact Hero Entrance -----
+    // ----- Contact Hero Entrance (Immediate) -----
     const contactHeroBadge = document.querySelector('.contact-hero-badge');
     const contactHeroTitle = document.querySelector('.contact-hero-title');
 
     if (contactHeroTitle) {
-        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        const tl = gsap.timeline({ defaults: { ease: 'power2.out', force3D: true } });
         if (contactHeroBadge) {
             tl.fromTo(contactHeroBadge,
-                { opacity: 0, y: -20, scale: 0.8, filter: 'blur(6px)' },
-                { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.8 }
+                { opacity: 0, y: -15 },
+                { opacity: 1, y: 0, duration: 0.5 }
             );
         }
         tl.fromTo(contactHeroTitle,
-            { opacity: 0, y: 50, scale: 0.95, filter: 'blur(8px)' },
-            { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 1.1 },
-            '-=0.5'
+            { opacity: 0, y: 25, scale: 0.98 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.7 },
+            '-=0.3'
         );
     }
 
@@ -30,27 +30,27 @@ export function contactAnimations() {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: contactInfoTitle,
-                start: 'top 85%',
+                start: 'top 95%',
                 toggleActions: 'play none none none'
             },
-            defaults: { ease: 'power3.out' }
+            defaults: { ease: 'power2.out', force3D: true }
         });
         if (contactInfoBadge) {
             tl.fromTo(contactInfoBadge,
-                { opacity: 0, x: -30, filter: 'blur(4px)' },
-                { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.6 }
+                { opacity: 0, x: -20 },
+                { opacity: 1, x: 0, duration: 0.5 }
             );
         }
         tl.fromTo(contactInfoTitle,
-            { opacity: 0, x: -40, filter: 'blur(6px)' },
-            { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.8 },
-            '-=0.3'
+            { opacity: 0, x: -25 },
+            { opacity: 1, x: 0, duration: 0.6 },
+            '-=0.2'
         );
         if (contactInfoDesc) {
             tl.fromTo(contactInfoDesc,
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.6 },
-                '-=0.4'
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, duration: 0.5 },
+                '-=0.3'
             );
         }
     }
@@ -60,15 +60,17 @@ export function contactAnimations() {
     if (contactInfoItems.length > 0) {
         contactInfoItems.forEach((item, index) => {
             gsap.fromTo(item,
-                { opacity: 0, x: -50, filter: 'blur(4px)' },
+                { opacity: 0, x: -30 },
                 {
-                    opacity: 1, x: 0, filter: 'blur(0px)',
-                    duration: 0.7,
-                    delay: index * 0.14,
-                    ease: 'power3.out',
+                    opacity: 1, x: 0,
+                    duration: 0.5,
+                    delay: index * 0.08,
+                    ease: 'power2.out',
+                    force3D: true,
+                    clearProps: 'transform,opacity',
                     scrollTrigger: {
                         trigger: item,
-                        start: 'top 88%',
+                        start: 'top 96%',
                         toggleActions: 'play none none none'
                     }
                 }
@@ -77,15 +79,16 @@ export function contactAnimations() {
             const iconWrap = item.querySelector('.contact-icon-wrap');
             if (iconWrap) {
                 gsap.fromTo(iconWrap,
-                    { scale: 0.5, opacity: 0, rotation: -15 },
+                    { scale: 0.7, opacity: 0 },
                     {
-                        scale: 1, opacity: 1, rotation: 0,
-                        duration: 0.6,
-                        delay: index * 0.14 + 0.15,
-                        ease: 'back.out(2)',
+                        scale: 1, opacity: 1,
+                        duration: 0.4,
+                        delay: index * 0.08 + 0.1,
+                        ease: 'back.out(1.5)',
+                        force3D: true,
                         scrollTrigger: {
                             trigger: item,
-                            start: 'top 88%',
+                            start: 'top 96%',
                             toggleActions: 'play none none none'
                         }
                     }
@@ -101,11 +104,12 @@ export function contactAnimations() {
             { scaleX: 0, opacity: 0, transformOrigin: 'left center' },
             {
                 scaleX: 1, opacity: 1,
-                duration: 0.9,
+                duration: 0.7,
                 ease: 'power2.inOut',
+                force3D: true,
                 scrollTrigger: {
                     trigger: contactDivider,
-                    start: 'top 90%',
+                    start: 'top 96%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -116,14 +120,15 @@ export function contactAnimations() {
     const contactWaBtn = document.querySelector('.contact-wa-btn');
     if (contactWaBtn) {
         gsap.fromTo(contactWaBtn,
-            { opacity: 0, y: 30, scale: 0.9 },
+            { opacity: 0, y: 20, scale: 0.95 },
             {
                 opacity: 1, y: 0, scale: 1,
-                duration: 0.8,
-                ease: 'back.out(1.7)',
+                duration: 0.6,
+                ease: 'back.out(1.5)',
+                force3D: true,
                 scrollTrigger: {
                     trigger: contactWaBtn,
-                    start: 'top 90%',
+                    start: 'top 96%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -147,14 +152,16 @@ export function contactAnimations() {
 
     if (contactFormWrapper) {
         gsap.fromTo(contactFormWrapper,
-            { opacity: 0, x: 60, scale: 0.96, filter: 'blur(8px)' },
+            { opacity: 0, y: 35, scale: 0.97 },
             {
-                opacity: 1, x: 0, scale: 1, filter: 'blur(0px)',
-                duration: 1.1,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.8,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: contactFormWrapper,
-                    start: 'top 82%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -162,15 +169,15 @@ export function contactAnimations() {
 
         if (formHeader) {
             gsap.fromTo(formHeader,
-                { opacity: 0, y: -15 },
+                { opacity: 0, y: -10 },
                 {
                     opacity: 1, y: 0,
-                    duration: 0.6,
-                    delay: 0.2,
-                    ease: 'power3.out',
+                    duration: 0.5,
+                    delay: 0.1,
+                    ease: 'power2.out',
                     scrollTrigger: {
                         trigger: contactFormWrapper,
-                        start: 'top 82%',
+                        start: 'top 95%',
                         toggleActions: 'play none none none'
                     }
                 }
@@ -180,15 +187,16 @@ export function contactAnimations() {
         const formGroups = contactFormWrapper.querySelectorAll('.form-group');
         formGroups.forEach((group, index) => {
             gsap.fromTo(group,
-                { opacity: 0, y: 30, filter: 'blur(3px)' },
+                { opacity: 0, y: 20 },
                 {
-                    opacity: 1, y: 0, filter: 'blur(0px)',
-                    duration: 0.55,
-                    delay: 0.35 + (index * 0.09),
-                    ease: 'power3.out',
+                    opacity: 1, y: 0,
+                    duration: 0.45,
+                    delay: 0.2 + (index * 0.05),
+                    ease: 'power2.out',
+                    force3D: true,
                     scrollTrigger: {
                         trigger: contactFormWrapper,
-                        start: 'top 82%',
+                        start: 'top 95%',
                         toggleActions: 'play none none none'
                     }
                 }
@@ -198,15 +206,16 @@ export function contactAnimations() {
         const submitBtn = contactFormWrapper.querySelector('.contact-submit-btn');
         if (submitBtn) {
             gsap.fromTo(submitBtn,
-                { opacity: 0, y: 20, scale: 0.95 },
+                { opacity: 0, y: 15, scale: 0.95 },
                 {
                     opacity: 1, y: 0, scale: 1,
-                    duration: 0.7,
-                    delay: 0.35 + (formGroups.length * 0.09) + 0.1,
+                    duration: 0.5,
+                    delay: 0.2 + (formGroups.length * 0.05) + 0.05,
                     ease: 'back.out(1.5)',
+                    force3D: true,
                     scrollTrigger: {
                         trigger: contactFormWrapper,
-                        start: 'top 82%',
+                        start: 'top 95%',
                         toggleActions: 'play none none none'
                     }
                 }
@@ -237,14 +246,16 @@ export function contactAnimations() {
     const contactMapCard = document.querySelector('.contact-map-card');
     if (contactMapCard) {
         gsap.fromTo(contactMapCard,
-            { opacity: 0, y: 70, scale: 0.94, filter: 'blur(8px)' },
+            { opacity: 0, y: 40, scale: 0.96 },
             {
-                opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-                duration: 1.1,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.8,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: contactMapCard,
-                    start: 'top 85%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }

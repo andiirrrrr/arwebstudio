@@ -8,23 +8,23 @@ export function faqAnimations() {
     const faqHeroDesc  = document.querySelector('.faq-hero-desc');
 
     if (faqHeroTitle) {
-        const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1 } });
+        const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.7, force3D: true } });
         if (faqHeroBadge) {
             tl.fromTo(faqHeroBadge,
-                { opacity: 0, y: 20, filter: 'blur(4px)' },
-                { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7 }
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, duration: 0.5 }
             );
         }
         tl.fromTo(faqHeroTitle,
-            { opacity: 0, y: 40, scale: 0.96, filter: 'blur(6px)' },
-            { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.9 },
-            '-=0.4'
+            { opacity: 0, y: 25, scale: 0.98 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.7 },
+            '-=0.3'
         );
         if (faqHeroDesc) {
             tl.fromTo(faqHeroDesc,
-                { opacity: 0, y: 20, filter: 'blur(4px)' },
-                { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7 },
-                '-=0.5'
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, duration: 0.5 },
+                '-=0.4'
             );
         }
     }
@@ -33,15 +33,17 @@ export function faqAnimations() {
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach((item, index) => {
         gsap.fromTo(item,
-            { opacity: 0, y: 40, scale: 0.97, filter: 'blur(3px)' },
+            { opacity: 0, y: 25, scale: 0.98 },
             {
-                opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-                duration: 0.7,
-                delay: index * 0.08,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.5,
+                delay: (index % 4) * 0.04,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: item,
-                    start: 'top 90%',
+                    start: 'top 96%',
                     toggleActions: 'play none none none'
                 }
             }

@@ -48,18 +48,18 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+    <!-- Google Fonts (async load for Material Icons to avoid render-blocking) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&family=Sora:wght@100..900&display=swap" rel="stylesheet">
 
-    <style>
-        [x-cloak] { display: none !important; }
-        html { scroll-behavior: smooth; }
-        ::-webkit-scrollbar { display: none; }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        .snap-x { scroll-snap-type: x mandatory; }
-        .snap-center { scroll-snap-align: center; }
+<style>
+            [x-cloak] { display: none !important; }
+            ::-webkit-scrollbar { display: none; }
+            .scrollbar-hide::-webkit-scrollbar { display: none; }
+            .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+            .snap-x { scroll-snap-type: x mandatory; }
+            .snap-center { scroll-snap-align: center; }
 
         /* Prevent icon raw text flash (FOUT) before font loads */
         .material-symbols-outlined {
@@ -79,6 +79,11 @@
             body { overscroll-behavior: none; }
             main > :first-child { margin-top: 0 !important; }
             main > :last-child { margin-bottom: 0 !important; }
+        }
+
+        /* GPU acceleration for common animated elements */
+        section {
+            contain: layout style;
         }
 
         /* ===== ANIMATION CLASSES ===== */
@@ -174,12 +179,12 @@
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+6285922107678",
+            "telephone": "+{{ preg_replace('/[^0-9]/', '', site_setting('whatsapp', '6285922107678')) }}",
             "contactType": "sales",
             "availableLanguage": "Indonesian"
         },
         "sameAs": [
-            "https://wa.me/6285922107678",
+            "https://wa.me/{{ preg_replace('/[^0-9]/', '', site_setting('whatsapp', '6285922107678')) }}",
             "https://instagram.com/arwebstudio"
         ],
         "priceRange": "Rp 500.000 - Rp 25.000.000",
@@ -308,7 +313,7 @@
     <div class="fixed z-[9999] flex flex-col items-center gap-3" style="position: fixed !important; bottom: 24px !important; right: 24px !important; z-index: 9999 !important;">
         <!-- SCROLL TO TOP BUTTON (atas) -->
         <button x-data="{ show: false }"
-                x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })"
+                x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 }, { passive: true })"
                 x-show="show"
                 x-cloak
                 x-transition:enter="transition ease-out duration-300"
@@ -322,6 +327,17 @@
                 aria-label="Kembali ke atas">
             <span class="material-symbols-outlined text-2xl sm:text-3xl font-bold">arrow_upward</span>
         </button>
+
+        <!-- WHATSAPP BUTTON (bawah) -->
+        <a href="{{ whatsapp_link('Halo ARWebStudio, saya ingin berkonsultasi tentang pembuatan website.') }}"
+           target="_blank"
+           rel="noopener"
+           class="w-14 h-14 rounded-full bg-[#25D366] hover:bg-white text-white hover:text-[#25D366] flex items-center justify-center shadow-xl shadow-black/50 hover:scale-110 active:scale-95 transition-all duration-300"
+           aria-label="Chat WhatsApp">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </a>
     </div>
 
     <!-- ===================== FOOTER ===================== -->
@@ -355,7 +371,7 @@
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="text-sm font-semibold text-[#e0e3e5] uppercase tracking-widest">Kontak</h4>
-                <p class="text-[#c5c6ce]">Makassar, Indonesia<br/>arwebstudio@gmail.com<br/>085922107678</p>
+                <p class="text-[#c5c6ce]">{{ site_setting('address', 'Makassar, Indonesia') }}<br/>{{ site_setting('email') }}<br/>{{ site_setting('whatsapp_display', site_setting('whatsapp')) }}</p>
             </div>
         </div>
         <div class="max-w-[1280px] mx-auto px-5 lg:px-16 mt-4 pt-4 border-t border-[rgba(74,127,199,0.2)] text-center text-sm text-[#c5c6ce] translate-y-4">

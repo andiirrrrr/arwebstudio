@@ -2,9 +2,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function homeAnimations() {
-    // ----- Hero Section -----
+    // ----- Hero Section (Immediate) -----
     const heroTimeline = gsap.timeline({
-        defaults: { ease: 'power3.out', duration: 1.2 }
+        defaults: { ease: 'power2.out', duration: 0.8, force3D: true }
     });
 
     const heroBadge    = document.querySelector('.hero-badge');
@@ -17,31 +17,32 @@ export function homeAnimations() {
     if (heroBadge) {
         heroTimeline
             .fromTo(heroBadge,
-                { opacity: 0, y: 30, scale: 0.95, filter: 'blur(4px)' },
-                { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.8 }
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.5 }
             )
             .fromTo(heroTitle,
-                { opacity: 0, x: -60, scale: 0.97, filter: 'blur(6px)' },
-                { opacity: 1, x: 0, scale: 1, filter: 'blur(0px)', duration: 1 }
+                { opacity: 0, y: 30, scale: 0.98 },
+                { opacity: 1, y: 0, scale: 1, duration: 0.8 },
+                '-=0.3'
             )
             .fromTo(heroDesc,
-                { opacity: 0, y: 30, filter: 'blur(4px)' },
-                { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8 },
-                '-=0.6'
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.6 },
+                '-=0.5'
             )
             .fromTo(heroButtons,
-                { opacity: 0, y: 20, filter: 'blur(2px)' },
-                { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6 },
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, duration: 0.5 },
                 '-=0.4'
             )
             .fromTo(heroImage,
-                { opacity: 0, x: 80, scale: 0.93, filter: 'blur(8px)' },
-                { opacity: 1, x: 0, scale: 1, filter: 'blur(0px)', duration: 1.2 },
-                '-=1'
+                { opacity: 0, y: 30, scale: 0.96 },
+                { opacity: 1, y: 0, scale: 1, duration: 0.8 },
+                '-=0.7'
             )
             .fromTo(heroCard,
-                { opacity: 0, y: 40, scale: 0.95, filter: 'blur(4px)' },
-                { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.8 },
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.6 },
                 '-=0.4'
             );
     }
@@ -54,58 +55,68 @@ export function homeAnimations() {
     const servicesCards    = document.querySelectorAll('.service-card');
 
     if (servicesSection) {
-        gsap.fromTo(servicesBadge,
-            { opacity: 0, y: 20, filter: 'blur(4px)' },
-            {
-                opacity: 1, y: 0, filter: 'blur(0px)',
-                duration: 0.8,
-                scrollTrigger: {
-                    trigger: servicesSection,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
+        if (servicesBadge) {
+            gsap.fromTo(servicesBadge,
+                { opacity: 0, y: 15 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.5,
+                    force3D: true,
+                    scrollTrigger: {
+                        trigger: servicesSection,
+                        start: 'top 95%',
+                        toggleActions: 'play none none none'
+                    }
                 }
-            }
-        );
+            );
+        }
 
-        gsap.fromTo(servicesTitle,
-            { opacity: 0, clipPath: 'inset(0 100% 0 0)' },
-            {
-                opacity: 1, clipPath: 'inset(0 0% 0 0)',
-                duration: 1.2,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: servicesSection,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
+        if (servicesTitle) {
+            gsap.fromTo(servicesTitle,
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.7,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: servicesSection,
+                        start: 'top 95%',
+                        toggleActions: 'play none none none'
+                    }
                 }
-            }
-        );
+            );
+        }
 
-        gsap.fromTo(servicesSubtitle,
-            { opacity: 0, y: 20, filter: 'blur(4px)' },
-            {
-                opacity: 1, y: 0, filter: 'blur(0px)',
-                duration: 0.8,
-                delay: 0.3,
-                scrollTrigger: {
-                    trigger: servicesSection,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
+        if (servicesSubtitle) {
+            gsap.fromTo(servicesSubtitle,
+                { opacity: 0, y: 15 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.5,
+                    delay: 0.15,
+                    force3D: true,
+                    scrollTrigger: {
+                        trigger: servicesSection,
+                        start: 'top 95%',
+                        toggleActions: 'play none none none'
+                    }
                 }
-            }
-        );
+            );
+        }
 
         servicesCards.forEach((card, index) => {
             gsap.fromTo(card,
-                { opacity: 0, y: 80, scale: 0.92, filter: 'blur(6px)' },
+                { opacity: 0, y: 40, scale: 0.96 },
                 {
-                    opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-                    duration: 0.9,
-                    delay: index * 0.12,
-                    ease: 'power3.out',
+                    opacity: 1, y: 0, scale: 1,
+                    duration: 0.6,
+                    delay: (index % 3) * 0.08,
+                    ease: 'power2.out',
+                    force3D: true,
+                    clearProps: 'transform,opacity',
                     scrollTrigger: {
-                        trigger: servicesSection,
-                        start: 'top 75%',
+                        trigger: card,
+                        start: 'top 95%',
                         toggleActions: 'play none none none'
                     }
                 }
@@ -120,44 +131,51 @@ export function homeAnimations() {
     const portfolioCards   = document.querySelectorAll('.portfolio-card');
 
     if (portfolioSection) {
-        gsap.fromTo(portfolioBadge,
-            { opacity: 0, y: 20, filter: 'blur(4px)' },
-            {
-                opacity: 1, y: 0, filter: 'blur(0px)',
-                duration: 0.8,
-                scrollTrigger: {
-                    trigger: portfolioSection,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
+        if (portfolioBadge) {
+            gsap.fromTo(portfolioBadge,
+                { opacity: 0, y: 15 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.5,
+                    force3D: true,
+                    scrollTrigger: {
+                        trigger: portfolioSection,
+                        start: 'top 95%',
+                        toggleActions: 'play none none none'
+                    }
                 }
-            }
-        );
+            );
+        }
 
-        gsap.fromTo(portfolioTitle,
-            { opacity: 0, clipPath: 'inset(0 100% 0 0)' },
-            {
-                opacity: 1, clipPath: 'inset(0 0% 0 0)',
-                duration: 1.2,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: portfolioSection,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
+        if (portfolioTitle) {
+            gsap.fromTo(portfolioTitle,
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.7,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: portfolioSection,
+                        start: 'top 95%',
+                        toggleActions: 'play none none none'
+                    }
                 }
-            }
-        );
+            );
+        }
 
         portfolioCards.forEach((card, index) => {
             gsap.fromTo(card,
-                { opacity: 0, y: 60, scale: 0.94, filter: 'blur(5px)' },
+                { opacity: 0, y: 40, scale: 0.96 },
                 {
-                    opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-                    duration: 0.8,
-                    delay: index * 0.1,
-                    ease: 'power3.out',
+                    opacity: 1, y: 0, scale: 1,
+                    duration: 0.6,
+                    delay: (index % 3) * 0.08,
+                    ease: 'power2.out',
+                    force3D: true,
+                    clearProps: 'transform,opacity',
                     scrollTrigger: {
-                        trigger: portfolioSection,
-                        start: 'top 75%',
+                        trigger: card,
+                        start: 'top 95%',
                         toggleActions: 'play none none none'
                     }
                 }
@@ -172,15 +190,17 @@ export function homeAnimations() {
     if (testimoniSection && testimoniCards.length) {
         testimoniCards.forEach((card, index) => {
             gsap.fromTo(card,
-                { opacity: 0, scale: 0.9, rotation: 2, filter: 'blur(4px)' },
+                { opacity: 0, y: 30, scale: 0.97 },
                 {
-                    opacity: 1, scale: 1, rotation: 0, filter: 'blur(0px)',
-                    duration: 0.7,
-                    delay: index * 0.08,
-                    ease: 'power3.out',
+                    opacity: 1, y: 0, scale: 1,
+                    duration: 0.6,
+                    delay: (index % 3) * 0.06,
+                    ease: 'power2.out',
+                    force3D: true,
+                    clearProps: 'transform,opacity',
                     scrollTrigger: {
                         trigger: testimoniSection,
-                        start: 'top 80%',
+                        start: 'top 95%',
                         toggleActions: 'play none none none'
                     }
                 }
@@ -192,14 +212,16 @@ export function homeAnimations() {
     const ctaSection = document.querySelector('.cta-section');
     if (ctaSection) {
         gsap.fromTo(ctaSection,
-            { opacity: 0, scale: 0.95, filter: 'blur(6px)' },
+            { opacity: 0, y: 35, scale: 0.97 },
             {
-                opacity: 1, scale: 1, filter: 'blur(0px)',
-                duration: 1.2,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.8,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: ctaSection,
-                    start: 'top 85%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }

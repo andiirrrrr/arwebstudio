@@ -352,24 +352,6 @@
             content.style.opacity = '0';
         }
     }
-
-    // ===== SMOOTH ANIMATION ON SCROLL =====
-    document.addEventListener('DOMContentLoaded', function() {
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-12');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.faq-item, section > div').forEach(el => {
-            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-12', 'ease-out');
-            observer.observe(el);
-        });
-    });
 </script>
 
 <style>

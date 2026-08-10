@@ -8,22 +8,21 @@ export function servicesAnimations() {
         gsap.fromTo(card,
             {
                 opacity: 0,
-                y: 80,
-                scale: 0.92,
-                filter: 'blur(6px)'
+                y: 40,
+                scale: 0.96,
             },
             {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                filter: 'blur(0px)',
-                duration: 1,
-                delay: index * 0.15,
-                ease: 'power3.out',
+                duration: 0.6,
+                delay: (index % 3) * 0.08,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top 85%',
-                    // FIXED: was 'play none none reverse' — menyebabkan card hilang saat scroll ke atas
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -34,14 +33,16 @@ export function servicesAnimations() {
     const cinematicElements = document.querySelectorAll('.cinematic-reveal');
     cinematicElements.forEach((el) => {
         gsap.fromTo(el,
-            { opacity: 0, scale: 0.95, filter: 'blur(4px)' },
+            { opacity: 0, y: 30, scale: 0.97 },
             {
-                opacity: 1, scale: 1, filter: 'blur(0px)',
-                duration: 1.2,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.7,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: el,
-                    start: 'top 85%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -54,16 +55,18 @@ export function servicesAnimations() {
         card.addEventListener('mouseenter', () => {
             gsap.to(card, {
                 scale: 1.02,
-                duration: 0.4,
+                duration: 0.3,
                 ease: 'power2.out',
+                force3D: true,
                 boxShadow: '0 20px 60px rgba(245, 166, 35, 0.08)'
             });
         });
         card.addEventListener('mouseleave', () => {
             gsap.to(card, {
                 scale: 1,
-                duration: 0.4,
+                duration: 0.3,
                 ease: 'power2.out',
+                force3D: true,
                 boxShadow: 'none'
             });
         });

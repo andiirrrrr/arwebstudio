@@ -107,7 +107,7 @@
         <div class="max-w-[1280px] mx-auto bg-gradient-to-br from-[#191c1e] via-[#1d2022] to-[#272a2c] rounded-[2rem] p-8 lg:py-16 lg:px-16 flex flex-col items-center text-center gap-6 border border-white/[0.05]">
             <h2 class="font-['Sora'] text-2xl lg:text-4xl font-semibold text-[#e0e3e5]">Tertarik dengan proyek serupa?</h2>
             <p class="text-[#c5c6ce] max-w-xl">Mari kita diskusikan bagaimana kami dapat membantu Anda membangun solusi digital Anda berikutnya.</p>
-            <a href="https://wa.me/6285922107678?text={{ urlencode('Halo ARWebStudio, saya tertarik dengan project ' . $project->title . '. Saya ingin berkonsultasi lebih lanjut tentang pembuatan website serupa.') }}" 
+            <a href="{{ whatsapp_link('Halo ARWebStudio, saya tertarik dengan project ' . $project->title . '. Saya ingin berkonsultasi lebih lanjut tentang pembuatan website serupa.') }}" 
                 target="_blank" 
                 class="bg-[#F5A623] text-[#0d1b35] px-10 py-4 rounded-full font-semibold hover:scale-105 transition-all">
                 Hubungi Kami

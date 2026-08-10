@@ -5,11 +5,13 @@
 
 @section('content')
 <div class="flex flex-col w-full relative bg-[#101415]">
-    <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY ===== -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
-        <div class="absolute top-40 left-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Precision</div>
-        <div class="absolute top-[1200px] right-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Solutions</div>
-        <div class="absolute top-[2400px] left-1/2 -translate-x-1/2 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
+    <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY (Lazy-loaded) ===== -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0" x-data="{ loaded: false }" x-init="setTimeout(() => { loaded = true }, 100)">
+        <template x-if="loaded">
+            <div class="absolute top-40 left-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Precision</div>
+            <div class="absolute top-[1200px] right-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Solutions</div>
+            <div class="absolute top-[2400px] left-1/2 -translate-x-1/2 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
+        </template>
     </div>
 
     <!-- ===== HERO ===== -->
@@ -143,13 +145,6 @@
         background: rgba(25, 28, 30, 0.4);
         backdrop-filter: blur(12px);
         border: 1px solid rgba(74, 127, 199, 0.1);
-    }
-    .glow-pulse {
-        animation: glowPulse 3s ease-in-out infinite;
-    }
-    @keyframes glowPulse {
-        0%, 100% { box-shadow: 0 0 20px rgba(245, 166, 35, 0.15); }
-        50% { box-shadow: 0 0 40px rgba(245, 166, 35, 0.30), 0 0 80px rgba(245, 166, 35, 0.10); }
     }
 </style>
 @endsection

@@ -2,31 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== UTILITY ANIMATIONS ===== */
-.float-badge {
-    animation: floatBadge 4s ease-in-out infinite;
-}
-
-@keyframes floatBadge {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-6px);
-    }
-}
-
-.glow-pulse {
-    animation: glowPulse 3s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-    0%, 100% {
-        box-shadow: 0 0 20px rgba(245, 166, 35, 0.15);
-    }
-    50% {
-        box-shadow: 0 0 40px rgba(245, 166, 35, 0.30), 0 0 80px rgba(245, 166, 35, 0.10);
-    }
+/* ===== GPU ACCELERATION FOR ANIMATED ELEMENTS ===== */
+.float-badge,
+.glow-pulse,
+.gsap-reveal,
+.quote-text,
+.stagger-card,
+.cinematic-reveal,
+.pricing-card,
+.workflow-step,
+.related-project,
+.final-cta {
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 /* ===== ARTICLE CONTENT STYLING (PROFESSIONAL TYPOGRAPHY) ===== */

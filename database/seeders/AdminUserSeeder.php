@@ -15,8 +15,9 @@ class AdminUserSeeder extends Seeder
     {
         User::create([
             'name' => 'ARWebStudio Admin',
-            'email' => 'admin@arwebstudio.id',
-            'password' => Hash::make('REPLACED_BY_ENV'),
+            'email' => env('ADMIN_EMAIL', 'admin@arwebstudio.id'),
+            'password' => Hash::make(env('ADMIN_PASSWORD', 'change-me-immediately')),
+            'is_admin' => true,
         ]);
     }
 }

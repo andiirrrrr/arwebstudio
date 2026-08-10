@@ -6,15 +6,17 @@ export function serviceDetailAnimations() {
     const pricingCards = document.querySelectorAll('.pricing-card');
     pricingCards.forEach((card, index) => {
         gsap.fromTo(card,
-            { opacity: 0, y: 60, scale: 0.9, filter: 'blur(4px)' },
+            { opacity: 0, y: 40, scale: 0.96 },
             {
-                opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-                duration: 0.9,
-                delay: index * 0.12,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.6,
+                delay: (index % 3) * 0.08,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top 85%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -25,16 +27,21 @@ export function serviceDetailAnimations() {
     const workflowSteps = document.querySelectorAll('.workflow-step');
     workflowSteps.forEach((step, index) => {
         gsap.fromTo(step,
-            { opacity: 0, y: 40, scale: 0.9, filter: 'blur(4px)' },
+            { opacity: 0, y: 30, scale: 0.97 },
             {
-                opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-                duration: 0.8,
-                delay: index * 0.1,
-                ease: 'power3.out',
+                opacity: 1, y: 0, scale: 1,
+                duration: 0.6,
+                delay: (index % 4) * 0.06,
+                ease: 'power2.out',
+                force3D: true,
+                overwrite: 'auto',
                 scrollTrigger: {
                     trigger: step,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
+                    start: 'top 95%',
+                    toggleActions: 'play none none none',
+                    onLeave: () => {
+                        gsap.set(step, { opacity: 1, y: 0, scale: 1 });
+                    }
                 }
             }
         );
@@ -44,15 +51,17 @@ export function serviceDetailAnimations() {
     const relatedProjects = document.querySelectorAll('.related-project');
     relatedProjects.forEach((project, index) => {
         gsap.fromTo(project,
-            { opacity: 0, y: 50, filter: 'blur(4px)' },
+            { opacity: 0, y: 35 },
             {
-                opacity: 1, y: 0, filter: 'blur(0px)',
-                duration: 0.8,
-                delay: index * 0.15,
-                ease: 'power3.out',
+                opacity: 1, y: 0,
+                duration: 0.6,
+                delay: (index % 3) * 0.08,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: project,
-                    start: 'top 85%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -63,14 +72,16 @@ export function serviceDetailAnimations() {
     const finalCta = document.querySelector('.final-cta');
     if (finalCta) {
         gsap.fromTo(finalCta,
-            { opacity: 0, scale: 0.95, filter: 'blur(6px)' },
+            { opacity: 0, y: 35, scale: 0.97 },
             {
-                opacity: 1, scale: 1, filter: 'blur(0px)',
-                duration: 1.2,
-                ease: 'power3.out',
+                opacity: 1, scale: 1, y: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                force3D: true,
+                clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: finalCta,
-                    start: 'top 85%',
+                    start: 'top 95%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -81,13 +92,14 @@ export function serviceDetailAnimations() {
     const heroImage = document.querySelector('.detail-hero-image');
     if (heroImage) {
         gsap.to(heroImage, {
-            y: 50,
+            y: 40,
             ease: 'none',
+            force3D: true,
             scrollTrigger: {
                 trigger: heroImage,
                 start: 'top bottom',
                 end: 'bottom top',
-                scrub: 1.5
+                scrub: 1
             }
         });
     }

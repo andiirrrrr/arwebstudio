@@ -4,11 +4,13 @@
 @section('meta_description', 'Lihat portfolio website dan aplikasi web yang telah kami buat untuk UMKM dan perusahaan di Makassar. Jasa pembuatan website profesional.')
 
 @section('content')
-    <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY ===== -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
-        <div class="absolute top-40 left-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
-        <div class="absolute top-[1200px] right-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Solutions</div>
-        <div class="absolute top-[2400px] left-1/2 -translate-x-1/2 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
+    <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY (Lazy-loaded) ===== -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0" x-data="{ loaded: false }" x-init="setTimeout(() => { loaded = true }, 100)">
+        <template x-if="loaded">
+            <div class="absolute top-40 left-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
+            <div class="absolute top-[1200px] right-10 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Solutions</div>
+            <div class="absolute top-[2400px] left-1/2 -translate-x-1/2 text-[180px] lg:text-[320px] font-bold text-white/[0.02] leading-none uppercase tracking-tighter">Quality</div>
+        </template>
     </div>
     
 <div class="flex flex-col w-full bg-[#101415]">
