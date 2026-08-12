@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('title', $article->title . ' - ARWebStudio')
-@section('meta_description', Str::limit(strip_tags($article->content), 150))
+@section('meta_description', $article->excerpt ?? Str::limit(strip_tags($article->content), 155))
+@section('canonical', route('blog.show', $article->slug))
+
+{{-- Open Graph per artikel --}}
+@section('og_title', $article->title . ' | ARWebStudio')
+@section('og_description', $article->excerpt ?? Str::limit(strip_tags($article->content), 155))
+@section('og_image', $article->thumbnail ? asset('storage/' . $article->thumbnail) : asset('images/og-image.jpg'))
+@section('twitter_title', $article->title . ' | ARWebStudio')
+@section('twitter_description', $article->excerpt ?? Str::limit(strip_tags($article->content), 155))
+@section('twitter_image', $article->thumbnail ? asset('storage/' . $article->thumbnail) : asset('images/og-image.jpg'))
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">
@@ -52,6 +61,7 @@
                 <div class="mt-6 rounded-2xl overflow-hidden">
                     <img src="{{ asset('storage/' . $article->thumbnail) }}" 
                          alt="{{ $article->title }}" 
+                         fetchpriority="high"
                          class="w-full h-auto object-cover">
                 </div>
             @endif
@@ -150,3 +160,37 @@
     </section>
 </div>
 @endsection
+
+@push('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ addslashes($article->title) }}",
+    "description": "{{ addslashes($article->excerpt ?? Str::limit(strip_tags($article->content), 155)) }}",
+    "datePublished": "{{ $article->published_at ? $article->published_at->toIso8601String() : $article->created_at->toIso8601String() }}",
+    "dateModified": "{{ $article->updated_at->toIso8601String() }}",
+    "author": {
+        "@type": "Organization",
+        "name": "ARWebStudio",
+        "url": "{{ url('/') }}"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "ARWebStudio",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('images/logo-arwebstudio.png') }}"
+        }
+    },
+    "url": "{{ route('blog.show', $article->slug) }}",
+    @if($article->thumbnail)
+    "image": "{{ asset('storage/' . $article->thumbnail) }}",
+    @endif
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ route('blog.show', $article->slug) }}"
+    }
+}
+</script>
+@endpush

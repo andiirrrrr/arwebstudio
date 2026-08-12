@@ -2,6 +2,11 @@
 
 @section('title', 'FAQ - Pertanyaan Umum ARWebStudio Makassar')
 @section('meta_description', 'Pertanyaan umum seputar pembuatan website, biaya, waktu pengerjaan, dan layanan ARWebStudio di Makassar.')
+@section('canonical', route('faq'))
+
+{{-- Open Graph --}}
+@section('og_title', 'FAQ Jasa Website Makassar - ARWebStudio')
+@section('og_description', 'Temukan jawaban atas pertanyaan umum seputar jasa pembuatan website, harga, waktu pengerjaan, dan garansi dari ARWebStudio Makassar.')
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">
@@ -371,3 +376,94 @@
     }
 </style>
 @endsection
+
+@push('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Berapa lama rata-rata proses pengerjaan satu proyek?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Estimasi pengerjaan bervariasi tergantung skala proyek. Untuk Landing Page standar memakan waktu 5-7 hari kerja. Website korporat dengan CMS biasanya 2-3 minggu, sementara platform kustom (SaaS/Dashboard) memerlukan waktu 4-8 minggu. Kami selalu memberikan timeline detail di awal kontrak."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Apakah biaya hosting dan domain sudah termasuk?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Biaya yang tertera adalah biaya pengembangan (development fee). Kami menyediakan hosting dan domain gratis untuk 1 tahun pertama. Setelah masa tersebut, biaya perpanjangan langganan ke provider hosting dibayarkan langsung oleh klien."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Berapa harga websitenya?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Harga website kami disesuaikan dengan kebutuhan, fitur, dan kompleksitas fungsi yang diinginkan. Silakan hubungi kami untuk sesi konsultasi gratis mengenai kebutuhan proyek Anda."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Bagaimana sistem pembayaran yang diberlakukan?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kami menggunakan sistem termin standar: 50% Down Payment (DP) untuk memulai riset dan desain, serta 50% pelunasan setelah proyek selesai, diuji, dan siap diluncurkan."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Apakah website yang dibuat pasti mobile-friendly?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tentu saja. Kami menerapkan prinsip Mobile-First Design. Lebih dari 70% trafik web berasal dari perangkat seluler, kami menjamin website Anda tampil sempurna di smartphone, tablet, maupun desktop."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Apakah ada dukungan teknis setelah proyek selesai (Post-Launch)?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ya, kami memberikan garansi pemeliharaan selama 3 bulan pertama setelah peluncuran untuk perbaikan bug atau error teknis secara gratis. Kami juga menawarkan paket maintenance bulanan."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Apakah saya bisa request revisi di tengah pengerjaan?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tentu bisa. Kami menerapkan sistem revisi bertahap di setiap milestone. Setiap paket memiliki kuota revisi yang telah disepakati di awal."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Apakah website saya akan dioptimasi untuk SEO?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ya, kami menerapkan on-page SEO terbaik seperti struktur heading yang benar, meta tag, URL friendly, dan kecepatan loading yang optimal. Kami juga membantu setup Google Search Console dan Analytics."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Apakah website saya akan aman dari serangan hacker?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tentu. Kami menerapkan praktik keamanan terbaik seperti SSL Certificate, proteksi SQL Injection, CSRF Protection, dan regular security audit."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Apakah saya bisa mengelola konten website sendiri tanpa coding?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ya! Semua website yang kami bangun dilengkapi dengan Content Management System (CMS) yang user-friendly. Anda bisa menambah, mengedit, atau menghapus konten tanpa perlu pengetahuan coding sama sekali."
+            }
+        }
+    ]
+}
+</script>
+@endpush

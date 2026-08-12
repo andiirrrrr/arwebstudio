@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')
-@section('meta_description', 'ARWebStudio adalah jasa pembuatan website profesional di Makassar. Kami melayani landing page, company profile, e-commerce, dan custom web app untuk UMKM dan perusahaan di Makassar dan sekitarnya.')
+@section('meta_description', 'ARWebStudio - Jasa pembuatan website profesional di Makassar. Landing page, company profile, e-commerce & custom web app untuk UMKM.')
+@section('canonical', route('home'))
+
+{{-- Open Graph Home --}}
+@section('og_title', 'Jasa Pembuatan Website Profesional di Makassar - ARWebStudio')
+@section('og_description', 'Jasa pembuatan website untuk UMKM & bisnis di Makassar. Landing page, company profile, e-commerce, custom web app.')
 
 @section('content')
     <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY (Lazy-loaded) ===== -->
@@ -41,7 +46,10 @@
             <div class="hero-image w-full lg:w-1/2 relative group">
                 <div class="absolute -inset-4 bg-[#114784]/20 blur-3xl rounded-full group-hover:bg-[#114784]/30 transition-all duration-700"></div>
                 <div class="relative aspect-square w-full max-w-[500px] mx-auto overflow-hidden rounded-2xl bg-[#1d2022] shadow-2xl border border-[rgba(74,127,199,0.2)]">
-                    <img class="w-full h-full object-cover" src="{{ asset('images/image.png') }}" alt="Hero ARWebStudio">
+                    <img class="w-full h-full object-cover" 
+                         src="{{ asset('images/image.png') }}" 
+                         alt="Tim ARWebStudio - Jasa Pembuatan Website Profesional di Makassar"
+                         fetchpriority="high">
                     <div class="hero-card absolute bottom-6 left-6 right-6 p-4 bg-[#101415]/80 backdrop-blur-md rounded-xl border border-[rgba(74,127,199,0.2)]">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-[#F5A623]/20 flex items-center justify-center">

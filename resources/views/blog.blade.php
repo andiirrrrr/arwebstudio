@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Blog - ARWebStudio')
-@section('meta_description', 'Artikel dan tips seputar pembuatan website, digital marketing, dan teknologi dari ARWebStudio.')
+@section('title', 'Blog Jasa Website Makassar - Tips Digital & Teknologi | ARWebStudio')
+@section('meta_description', 'Baca tips dan artikel seputar jasa website, digital marketing, dan teknologi terbaru dari ARWebStudio Makassar.')
+@section('canonical', route('blog'))
+
+{{-- Open Graph --}}
+@section('og_title', 'Blog ARWebStudio - Tips Website & Digital Marketing Makassar')
+@section('og_description', 'Artikel dan tips seputar pembuatan website, digital marketing, dan teknologi dari ARWebStudio Makassar.')
 
 @section('content')
     <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY (Lazy-loaded) ===== -->

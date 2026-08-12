@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Portfolio Website - ARWebStudio')
+@section('title', 'Portfolio Website - ARWebStudio Makassar')
 @section('meta_description', 'Lihat portfolio website dan aplikasi web yang telah kami buat untuk UMKM dan perusahaan di Makassar. Jasa pembuatan website profesional.')
+@section('canonical', route('portfolio'))
+
+{{-- Open Graph --}}
+@section('og_title', 'Portfolio Karya ARWebStudio - Jasa Website Makassar')
+@section('og_description', 'Lihat portfolio karya ARWebStudio — landing page, company profile, e-commerce, hingga custom web app untuk UMKM di Makassar.')
 
 @section('content')
     <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY (Lazy-loaded) ===== -->

@@ -2,6 +2,15 @@
 
 @section('title', $project->title . ' - Portfolio Jasa Website Makassar | ARWebStudio')
 @section('meta_description', $project->title . ' - ' . Str::limit($project->description, 140) . ' | ARWebStudio, jasa pembuatan website di Makassar.')
+@section('canonical', route('portfolio.detail', $project->id))
+
+{{-- Open Graph per portfolio --}}
+@section('og_title', $project->title . ' - Portfolio ARWebStudio Makassar')
+@section('og_description', Str::limit($project->description ?? 'Lihat karya terbaik ARWebStudio dalam portofolio ini.', 155))
+@section('og_image', $project->formatted_thumbnail_url ?? asset('images/og-image.jpg'))
+@section('twitter_title', $project->title . ' | ARWebStudio')
+@section('twitter_description', Str::limit($project->description ?? 'Portfolio ARWebStudio Makassar.', 155))
+@section('twitter_image', $project->formatted_thumbnail_url ?? asset('images/og-image.jpg'))
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">
@@ -20,8 +29,8 @@
             <div class="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-[#1d2022] border border-[rgba(74,127,199,0.2)]">
                 @if($project->formatted_thumbnail_url)
                     <img src="{{ $project->formatted_thumbnail_url }}" 
-                         alt="{{ $project->title }}" 
-                         loading="lazy"
+                         alt="Portfolio {{ $project->title }} - ARWebStudio Makassar" 
+                         fetchpriority="high"
                          class="w-full h-full object-cover">
                 @else
                     <div class="w-full h-full flex items-center justify-center">
@@ -116,3 +125,23 @@
     </section>
 </div>
 @endsection
+
+@push('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "{{ addslashes($project->title) }}",
+    "description": "{{ addslashes(Str::limit($project->description ?? '', 200)) }}",
+    "creator": {
+        "@type": "Organization",
+        "name": "ARWebStudio",
+        "url": "{{ url('/') }}"
+    },
+    "url": "{{ route('portfolio.detail', $project->id) }}"
+    @if($project->formatted_thumbnail_url),
+    "image": "{{ $project->formatted_thumbnail_url }}"
+    @endif
+}
+</script>
+@endpush

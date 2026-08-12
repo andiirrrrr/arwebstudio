@@ -2,6 +2,11 @@
 
 @section('title', 'Layanan Pembuatan Website di Makassar - ARWebStudio')
 @section('meta_description', 'Layanan pembuatan website profesional di Makassar: Landing Page, Company Profile, E-commerce, dan Custom Web App. Konsultasi gratis untuk UMKM di Makassar!')
+@section('canonical', route('services'))
+
+{{-- Open Graph --}}
+@section('og_title', 'Layanan Jasa Website Makassar - Landing Page, E-commerce & Web App | ARWebStudio')
+@section('og_description', 'Layanan pembuatan website profesional di Makassar: Landing Page, Company Profile, E-commerce, Custom Web App. Harga terjangkau, kualitas premium.')
 
 @section('content')
 <div class="flex flex-col w-full relative bg-[#101415]">

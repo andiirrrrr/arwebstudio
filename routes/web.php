@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
@@ -15,3 +16,6 @@ Route::get('/kontak', [PageController::class, 'contact'])->name('contact');
 Route::post('/kontak', [ContactController::class, 'send'])->name('contact.send')->middleware('throttle:5,1');
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 Route::get('/blog/{slug}', [PageController::class, 'blogShow'])->name('blog.show');
+
+// Sitemap & SEO
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');

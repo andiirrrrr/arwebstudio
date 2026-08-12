@@ -2,6 +2,11 @@
 
 @section('title', 'Tentang ARWebStudio - Jasa Pembuatan Website di Makassar')
 @section('meta_description', 'ARWebStudio adalah jasa pembuatan website yang didirikan tahun 2026 di Makassar. Full Stack Developer dengan bantuan AI untuk solusi digital terbaik bagi UMKM Makassar.')
+@section('canonical', route('about'))
+
+{{-- Open Graph --}}
+@section('og_title', 'Tentang ARWebStudio - Tim Jasa Website Profesional Makassar')
+@section('og_description', 'ARWebStudio didirikan di Makassar tahun 2026. Kami adalah Full Stack Developer yang membantu UMKM & bisnis tumbuh melalui solusi website profesional.')
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">

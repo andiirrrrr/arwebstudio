@@ -2,6 +2,11 @@
 
 @section('title', 'Kontak ARWebStudio - Jasa Pembuatan Website Makassar')
 @section('meta_description', 'Hubungi ARWebStudio untuk konsultasi pembuatan website profesional di Makassar. Tersedia layanan WhatsApp dan email untuk UMKM di Makassar.')
+@section('canonical', route('contact'))
+
+{{-- Open Graph --}}
+@section('og_title', 'Hubungi ARWebStudio - Konsultasi Jasa Website Makassar Gratis')
+@section('og_description', 'Konsultasikan kebutuhan website Anda dengan ARWebStudio Makassar secara gratis. Balasan cepat via WhatsApp!')
 
 @section('content')
     <!-- ===== HERO SECTION ===== -->

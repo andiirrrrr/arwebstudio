@@ -2,6 +2,15 @@
 
 @section('title', $service->name . ' - Jasa Pembuatan Website di Makassar | ARWebStudio')
 @section('meta_description', 'Layanan ' . $service->name . ' dari ARWebStudio, jasa pembuatan website profesional di Makassar. ' . Str::limit($service->description, 140))
+@section('canonical', route('service.detail', $service->id))
+
+{{-- Open Graph per layanan --}}
+@section('og_title', $service->name . ' - Jasa Website Makassar | ARWebStudio')
+@section('og_description', Str::limit($service->description, 155))
+@section('og_image', $service->thumbnail ? asset('storage/' . $service->thumbnail) : asset('images/og-image.jpg'))
+@section('twitter_title', $service->name . ' | ARWebStudio Makassar')
+@section('twitter_description', Str::limit($service->description, 155))
+@section('twitter_image', $service->thumbnail ? asset('storage/' . $service->thumbnail) : asset('images/og-image.jpg'))
 
 @section('content')
 <div class="flex flex-col w-full overflow-hidden">
@@ -43,8 +52,8 @@
                 <div class="aspect-[4/3] w-full overflow-hidden rounded-xl border border-[rgba(74,127,199,0.2)] shadow-2xl group">
                     @if($service->thumbnail)
                         <img src="{{ asset('storage/' . $service->thumbnail) }}" 
-                             alt="{{ $service->name }}" 
-                             loading="lazy"
+                             alt="Layanan {{ $service->name }} - Jasa Pembuatan Website di Makassar | ARWebStudio" 
+                             fetchpriority="high"
                              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100">
                     @else
                         <div class="w-full h-full bg-[#1d2022] flex items-center justify-center">
@@ -319,3 +328,28 @@
 
 
 @endsection
+
+@push('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "{{ addslashes($service->name) }}",
+    "description": "{{ addslashes(Str::limit($service->description, 200)) }}",
+    "provider": {
+        "@type": "LocalBusiness",
+        "name": "ARWebStudio",
+        "url": "{{ url('/') }}",
+        "areaServed": "Makassar"
+    },
+    "areaServed": {
+        "@type": "City",
+        "name": "Makassar"
+    },
+    "url": "{{ route('service.detail', $service->id) }}"
+    @if($service->thumbnail),
+    "image": "{{ asset('storage/' . $service->thumbnail) }}"
+    @endif
+}
+</script>
+@endpush

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    {{-- ===== HALAMAN STATIS ===== --}}
     <url>
         <loc>{{ url('/') }}</loc>
         <lastmod>{{ date('Y-m-d') }}</lastmod>
@@ -25,6 +27,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>{{ url('/blog') }}</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>{{ url('/faq') }}</loc>
         <lastmod>{{ date('Y-m-d') }}</lastmod>
         <changefreq>monthly</changefreq>
@@ -36,9 +44,9 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
-    <!-- Dynamic URLs untuk setiap service -->
-    @foreach(\App\Models\Service::all() as $service)
+
+    {{-- ===== HALAMAN DETAIL LAYANAN ===== --}}
+    @foreach($services as $service)
     <url>
         <loc>{{ url('/layanan/' . $service->id) }}</loc>
         <lastmod>{{ $service->updated_at->format('Y-m-d') }}</lastmod>
@@ -46,9 +54,9 @@
         <priority>0.7</priority>
     </url>
     @endforeach
-    
-    <!-- Dynamic URLs untuk setiap project -->
-    @foreach(\App\Models\Project::all() as $project)
+
+    {{-- ===== HALAMAN DETAIL PORTFOLIO ===== --}}
+    @foreach($projects as $project)
     <url>
         <loc>{{ url('/portofolio/' . $project->id) }}</loc>
         <lastmod>{{ $project->updated_at->format('Y-m-d') }}</lastmod>
@@ -56,4 +64,15 @@
         <priority>0.6</priority>
     </url>
     @endforeach
+
+    {{-- ===== HALAMAN ARTIKEL BLOG ===== --}}
+    @foreach($articles as $article)
+    <url>
+        <loc>{{ url('/blog/' . $article->slug) }}</loc>
+        <lastmod>{{ $article->updated_at->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    @endforeach
+
 </urlset>

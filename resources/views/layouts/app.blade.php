@@ -22,13 +22,13 @@
     <link rel="apple-touch-icon" href="{{ asset('images/logo-arwebstudio.png') }}">
 
     <!-- ===== CANONICAL URL ===== -->
-    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="canonical" href="@yield('canonical', url()->current())">
 
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="@yield('og_title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')">
-    <meta property="og:description" content="@yield('og_description', 'ARWebStudio - Jasa pembuatan website profesional di Makassar. Landing Page, Company Profile, E-commerce, dan Custom Web App.')">
+    <meta property="og:description" content="@yield('og_description', 'Jasa pembuatan website profesional di Makassar — Landing Page, Company Profile, E-commerce & Web App custom.')">
     <meta property="og:image" content="@yield('og_image', asset('images/og-image.jpg'))">
     <meta property="og:site_name" content="ARWebStudio">
     <meta property="og:locale" content="id_ID">
@@ -51,7 +51,8 @@
     <!-- Google Fonts (async load for Material Icons to avoid render-blocking) -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"></noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&family=Sora:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 <style>
             [x-cloak] { display: none !important; }
@@ -168,6 +169,7 @@
         "image": "{{ asset('images/og-image.jpg') }}",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Makassar",
             "addressLocality": "Makassar",
             "addressRegion": "Sulawesi Selatan",
             "addressCountry": "ID"
@@ -202,6 +204,9 @@
         }
     }
     </script>
+
+    {{-- ===== PER-PAGE STRUCTURED DATA (JSON-LD) ===== --}}
+    @stack('structured_data')
 
 </head>
 <body class="bg-[#101415] font-['Plus_Jakarta_Sans'] text-[#e0e3e5] antialiased min-h-screen flex flex-col"
