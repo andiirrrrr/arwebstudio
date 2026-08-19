@@ -44,7 +44,7 @@
             <!-- Right Column - Image -->
             <div class="lg:col-span-5 relative mt-12 lg:mt-0">
                 <div class="about-hero-image relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] border border-white/5 transform lg:translate-x-12">
-                    <img alt="Logo ARWebStudio - Jasa Website Makassar" class="w-full h-full object-cover" src="{{ asset('images/logo.jpeg') }}">
+                    <img alt="Logo ARWebStudio - Jasa Website Makassar" class="w-full h-full object-cover" src="{{ asset('images/logo.webp') }}">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#101415] via-transparent to-transparent opacity-40"></div>
                 </div>
                 <!-- Floating Badge -->

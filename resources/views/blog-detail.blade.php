@@ -185,7 +185,7 @@
         "name": "ARWebStudio",
         "logo": {
             "@type": "ImageObject",
-            "url": "{{ asset('images/logo-arwebstudio.png') }}"
+            "url": "{{ asset('images/logo-arwebstudio.svg') }}"
         }
     },
     "url": "{{ route('blog.show', $article->slug) }}",

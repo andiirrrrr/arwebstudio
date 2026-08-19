@@ -47,7 +47,7 @@
                 <div class="absolute -inset-4 bg-[#114784]/20 blur-3xl rounded-full group-hover:bg-[#114784]/30 transition-all duration-700"></div>
                 <div class="relative aspect-square w-full max-w-[500px] mx-auto overflow-hidden rounded-2xl bg-[#1d2022] shadow-2xl border border-[rgba(74,127,199,0.2)]">
                     <img class="w-full h-full object-cover" 
-                         src="{{ asset('images/image.png') }}" 
+                         src="{{ asset('images/image.webp') }}" 
                          alt="Tim ARWebStudio - Jasa Pembuatan Website Profesional di Makassar"
                          width="500" height="500"
                          fetchpriority="high"
@@ -158,6 +158,51 @@
                     Lihat Semua Layanan
                     <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MENGAPA PILIH KAMI ===== -->
+    @php
+    $whyUs = [
+        ['icon' => 'smart_toy', 'title' => 'Full-Stack Developer + AI', 'desc' => 'Dikerjakan langsung oleh full-stack developer yang dipercepat teknologi AI: cepat, presisi, dan efisien.'],
+        ['icon' => 'design_services', 'title' => 'Desain Kustom Modern', 'desc' => 'Tampilan unik sesuai identitas brand Anda, bukan template asal jadi.'],
+        ['icon' => 'devices', 'title' => 'Responsive Semua Perangkat', 'desc' => 'Tampil sempurna di HP, tablet, dan desktop.'],
+        ['icon' => 'trending_up', 'title' => 'SEO Friendly', 'desc' => 'Struktur & konten dioptimalkan agar mudah ditemukan di Google.'],
+        ['icon' => 'payments', 'title' => 'Harga Terjangkau & Transparan', 'desc' => 'Tanpa biaya tersembunyi, sesuai kebutuhan Anda.'],
+        ['icon' => 'support_agent', 'title' => 'Dukungan & Maintenance', 'desc' => 'Support cepat dan perawatan website pasca-launching.'],
+    ];
+    @endphp
+    <section class="whyus-section px-5 lg:px-16 py-[120px]">
+        <div class="max-w-[1280px] mx-auto">
+            <!-- Header -->
+            <div class="flex flex-col items-center text-center gap-4 mb-16">
+                <span class="whyus-badge text-sm font-semibold text-[#F5A623] uppercase tracking-[0.2em]">
+                    Mengapa Pilih Kami
+                </span>
+                <h2 class="whyus-title font-['Sora'] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] tracking-[-0.01em] text-[#e0e3e5]">
+                    Kenapa Harus <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#e0e3e5] via-[#d8e2ff] to-[#a8c8ff]">ARWebStudio</span>
+                </h2>
+                <p class="whyus-subtitle text-[16px] text-[#c5c6ce] max-w-2xl">
+                    Kami menggabungkan keahlian pengembangan web dan teknologi AI untuk menghasilkan website berkualitas secara cepat, presisi, dan efisien.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @foreach($whyUs as $item)
+                    <div class="whyus-card group relative bg-[#191c1e] rounded-2xl p-6 border border-[rgba(74,127,199,0.15)] hover:border-[#F5A623]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#F5A623]/5 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-full bg-[#F5A623]/20 flex items-center justify-center mb-5 group-hover:bg-[#F5A623]/30 transition-colors duration-500">
+                            <span class="material-symbols-outlined text-[#F5A623] text-3xl">{{ $item['icon'] }}</span>
+                        </div>
+                        <h3 class="font-['Sora'] text-lg font-semibold text-[#e0e3e5] mb-2 group-hover:text-[#F5A623] transition-colors">
+                            {{ $item['title'] }}
+                        </h3>
+                        <p class="text-[#c5c6ce] text-sm leading-relaxed">
+                            {{ $item['desc'] }}
+                        </p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

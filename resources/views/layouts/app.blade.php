@@ -19,7 +19,7 @@
 
     <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/logo-arwebstudio.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo-arwebstudio.svg') }}">
 
     <!-- ===== CANONICAL URL ===== -->
     <link rel="canonical" href="@yield('canonical', url()->current())">
@@ -165,7 +165,7 @@
         "name": "ARWebStudio",
         "description": "Jasa pembuatan website profesional di Makassar. Melayani UMKM, company profile, e-commerce, dan custom web app.",
         "url": "{{ url('/') }}",
-        "logo": "{{ asset('images/logo-arwebstudio.png') }}",
+        "logo": "{{ asset('images/logo-arwebstudio.svg') }}",
         "image": "{{ asset('images/og-image.jpg') }}",
         "address": {
             "@type": "PostalAddress",
