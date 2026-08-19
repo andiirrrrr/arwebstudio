@@ -47,6 +47,8 @@
                 <div class="absolute -inset-4 bg-[#114784]/20 blur-3xl rounded-full group-hover:bg-[#114784]/30 transition-all duration-700"></div>
                 <div class="relative aspect-square w-full max-w-[500px] mx-auto overflow-hidden rounded-2xl bg-[#1d2022] shadow-2xl border border-[rgba(74,127,199,0.2)]">
                     <img class="w-full h-full object-cover" 
+                         srcset="{{ asset('images/image-500.webp') }} 500w, {{ asset('images/image.webp') }} 1254w"
+                         sizes="(min-width: 1024px) 500px, 90vw"
                          src="{{ asset('images/image.webp') }}" 
                          alt="Tim ARWebStudio - Jasa Pembuatan Website Profesional di Makassar"
                          width="500" height="500"

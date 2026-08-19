@@ -79,9 +79,11 @@ function initUtilityAnimations() {
 
 // =====================================================
 // LAZY PAGE DETECTION & DYNAMIC IMPORT
-// Hanya animasi halaman yang sedang aktif yang di-load
+// Hanya animasi halaman yang sedang aktif yang di-load.
+// Dijalankan setelah window.load untuk mengurangi beban
+// main-thread saat render awal (meningkatkan FCP/LCP/TBT).
 // =====================================================
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
     // Jalankan utility di semua halaman
     initUtilityAnimations();
 
@@ -112,10 +114,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Refresh ScrollTrigger setelah semua asset halaman siap
-    // (window.load lebih tepat daripada DOMContentLoaded untuk images)
-    window.addEventListener('load', () => {
-        ScrollTrigger.refresh();
-    });
+    ScrollTrigger.refresh();
 });
 
 // =====================================================
