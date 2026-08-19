@@ -59,7 +59,7 @@
             ::-webkit-scrollbar { display: none; }
             .scrollbar-hide::-webkit-scrollbar { display: none; }
             .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-            .snap-x { scroll-snap-type: x mandatory; }
+            .snap-x { scroll-snap-type: x proximity; }
             .snap-center { scroll-snap-align: center; }
 
         /* Prevent icon raw text flash (FOUT) before font loads */

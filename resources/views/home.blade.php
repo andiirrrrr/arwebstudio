@@ -272,7 +272,7 @@
                     Apa Kata Klien Kami
                 </h2>
             </div>
-            <div class="testimoni-track flex gap-6 overflow-x-auto pb-8 scrollbar-hide snap-x snap-mandatory">
+            <div class="testimoni-track flex gap-6 overflow-x-auto pb-8 scrollbar-hide snap-x snap-proximity">
                 @foreach($testimonials as $testi)
                     <div class="testimoni-card min-w-[300px] md:min-w-[400px] snap-center p-6 bg-[#272a2c] rounded-xl border border-[rgba(74,127,199,0.2)] flex flex-col gap-6 hover:border-[#a8c8ff]/40 transition-all duration-300">
                         <div class="flex gap-1 text-[#F5A623]">
@@ -305,73 +305,97 @@
         const track = document.querySelector('.testimoni-track');
         if (!track || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+        const hasHover = window.matchMedia('(hover: hover)').matches;
         const SPEED = 0.5;
+        const IDLE_RESUME = 4000;
         const RESET_IDLE = 2000;
-        const TOUCH_IDLE = 4000;
-        let paused = false;
-        let resetting = false;
+
         let raf = null;
         let idleTimer = null;
         let resetTimer = null;
+        let interacting = false;
+        let resetting = false;
 
         const canAuto = () => track.scrollWidth > track.clientWidth + 4;
 
-        function setSnap(on) {
-            track.style.scrollSnapType = on ? '' : 'none';
+        function stopAuto() {
+            cancelAnimationFrame(raf);
+            raf = null;
+            track.style.scrollSnapType = '';
         }
 
-        function step() {
-            if (!canAuto() || paused) return;
+        function startAuto() {
+            if (raf || interacting || !canAuto()) return;
+            raf = requestAnimationFrame(tick);
+        }
+
+        function tick() {
+            raf = null;
+            if (interacting || !canAuto()) return;
+
             if (resetting) {
                 if (track.scrollLeft <= 1) {
                     resetting = false;
-                    setSnap(false);
+                } else {
+                    raf = requestAnimationFrame(tick);
+                    return;
                 }
-                return;
             }
+
             const max = track.scrollWidth - track.clientWidth;
-            if (track.scrollLeft >= max - 1) {
+            if (!resetting && track.scrollLeft >= max - 1) {
                 resetting = true;
-                setSnap(true);
                 track.scrollTo({ left: 0, behavior: 'smooth' });
                 clearTimeout(resetTimer);
-                resetTimer = setTimeout(() => { resetting = false; setSnap(false); }, RESET_IDLE);
+                resetTimer = setTimeout(() => { resetting = false; }, RESET_IDLE);
+                raf = requestAnimationFrame(tick);
                 return;
             }
-            setSnap(false);
+
+            track.style.scrollSnapType = 'none';
             track.scrollLeft += SPEED;
+            raf = requestAnimationFrame(tick);
         }
 
-        function loop() {
-            raf = requestAnimationFrame(() => { step(); loop(); });
-        }
-
-        function pause() { paused = true; setSnap(true); clearTimeout(idleTimer); }
-        function resume() { paused = false; setSnap(false); }
-
-        track.addEventListener('mouseenter', pause);
-        track.addEventListener('mouseleave', resume);
-
-        track.addEventListener('touchstart', () => { clearTimeout(idleTimer); pause(); }, { passive: true });
-        track.addEventListener('touchmove', () => clearTimeout(idleTimer), { passive: true });
-        track.addEventListener('touchend', () => {
+        function beginInteract() {
+            interacting = true;
             clearTimeout(idleTimer);
-            idleTimer = setTimeout(resume, TOUCH_IDLE);
-        }, { passive: true });
+            stopAuto();
+        }
+
+        function endInteract() {
+            clearTimeout(idleTimer);
+            idleTimer = setTimeout(() => {
+                interacting = false;
+                startAuto();
+            }, IDLE_RESUME);
+        }
+
+        if (hasHover) {
+            track.addEventListener('mouseenter', beginInteract);
+            track.addEventListener('mouseleave', endInteract);
+        }
+
+        track.addEventListener('wheel', () => { beginInteract(); endInteract(); }, { passive: true });
+
+        track.addEventListener('touchstart', beginInteract, { passive: true });
+        track.addEventListener('touchmove', () => clearTimeout(idleTimer), { passive: true });
+        track.addEventListener('touchend', endInteract, { passive: true });
+        track.addEventListener('touchcancel', endInteract, { passive: true });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) stopAuto();
+            else if (!interacting) startAuto();
+        });
 
         if ('IntersectionObserver' in window) {
             const io = new IntersectionObserver((entries) => {
-                const visible = entries[0].isIntersecting;
-                if (visible) {
-                    if (!raf) loop();
-                } else {
-                    cancelAnimationFrame(raf);
-                    raf = null;
-                }
+                if (entries[0].isIntersecting) startAuto();
+                else stopAuto();
             }, { threshold: 0.1 });
             io.observe(track);
         } else {
-            loop();
+            startAuto();
         }
     })();
     </script>
