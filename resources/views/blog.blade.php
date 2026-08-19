@@ -52,6 +52,9 @@
                                 @if($article->thumbnail)
                                     <img src="{{ asset('storage/' . $article->thumbnail) }}" 
                                          alt="{{ $article->title }}" 
+                                         loading="lazy"
+                                         decoding="async"
+                                         width="800" height="450"
                                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 @else
                                     <div class="w-full h-full flex items-center justify-center text-[#a8c8ff]/30">

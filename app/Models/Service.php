@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\ImageOptimizer;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +25,21 @@ class Service extends Model
         'key_features' => 'array',
         'workflow' => 'array',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function (Service $service) {
+            if ($service->isDirty('thumbnail') && ! empty($service->thumbnail)) {
+                $newPath = ImageOptimizer::make()->optimize('public', $service->thumbnail);
+
+                if ($newPath !== null && $newPath !== $service->thumbnail) {
+                    $service->thumbnail = $newPath;
+                }
+            }
+        });
+    }
 
     // ===== RELASI =====
     public function servicePrices()

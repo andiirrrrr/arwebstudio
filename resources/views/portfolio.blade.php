@@ -74,7 +74,9 @@
                                 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                                      src="{{ $project->formatted_thumbnail_url }}" 
                                      alt="{{ $project->title }}"
-                                     loading="lazy">
+                                     loading="lazy"
+                                     decoding="async"
+                                     width="800" height="500">
                             @else
                                 <div class="w-full h-full flex items-center justify-center bg-[#16233d]">
                                     <span class="material-symbols-outlined text-[40px] sm:text-[60px] text-[#a8c8ff]/30">image</span>

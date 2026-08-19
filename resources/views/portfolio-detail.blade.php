@@ -30,7 +30,9 @@
                 @if($project->formatted_thumbnail_url)
                     <img src="{{ $project->formatted_thumbnail_url }}" 
                          alt="Portfolio {{ $project->title }} - ARWebStudio Makassar" 
+                         width="1280" height="720"
                          fetchpriority="high"
+                         decoding="async"
                          class="w-full h-full object-cover">
                 @else
                     <div class="w-full h-full flex items-center justify-center">

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\ImageOptimizer;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -34,6 +35,20 @@ class Article extends Model
         static::creating(function ($article) {
             if (empty($article->slug)) {
                 $article->slug = Str::slug($article->title);
+            }
+        });
+
+        static::saving(function (Article $article) {
+            if ($article->isDirty('thumbnail') && ! empty($article->thumbnail)) {
+                $newPath = ImageOptimizer::make()->optimize('public', $article->thumbnail);
+
+                if ($newPath !== null && $newPath !== $article->thumbnail) {
+                    $article->thumbnail = $newPath;
+                }
+            }
+
+            if ($article->isDirty('content') && ! empty($article->content)) {
+                $article->content = ImageOptimizer::make()->optimizeHtml($article->content);
             }
         });
     }

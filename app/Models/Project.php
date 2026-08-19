@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\ImageOptimizer;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,6 +21,21 @@ class Project extends Model
         'result',
         'project_url',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function (Project $project) {
+            if ($project->isDirty('thumbnail_url') && ! empty($project->thumbnail_url)) {
+                $newPath = ImageOptimizer::make()->optimize('public', $project->thumbnail_url);
+
+                if ($newPath !== null && $newPath !== $project->thumbnail_url) {
+                    $project->thumbnail_url = $newPath;
+                }
+            }
+        });
+    }
 
     // Accessor untuk URL publik yang diformat (digunakan di frontend Blade)
     public function getFormattedThumbnailUrlAttribute()

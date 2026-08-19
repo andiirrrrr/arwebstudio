@@ -49,7 +49,9 @@
                     <img class="w-full h-full object-cover" 
                          src="{{ asset('images/image.png') }}" 
                          alt="Tim ARWebStudio - Jasa Pembuatan Website Profesional di Makassar"
-                         fetchpriority="high">
+                         width="500" height="500"
+                         fetchpriority="high"
+                         decoding="async">
                     <div class="hero-card absolute bottom-6 left-6 right-6 p-4 bg-[#101415]/80 backdrop-blur-md rounded-xl border border-[rgba(74,127,199,0.2)]">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-[#F5A623]/20 flex items-center justify-center">
@@ -93,6 +95,8 @@
                                 <img src="{{ asset('storage/' . $service->thumbnail) }}" 
                                     alt="{{ $service->name }}" 
                                     loading="lazy"
+                                    decoding="async"
+                                    width="800" height="600"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-[#a8c8ff]">
@@ -181,7 +185,9 @@
                                 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                                     src="{{ $project->formatted_thumbnail_url }}" 
                                     alt="{{ $project->title }}"
-                                    loading="lazy">
+                                    loading="lazy"
+                                    decoding="async"
+                                    width="800" height="600">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-[#a8c8ff]">
                                     <span class="material-symbols-outlined text-6xl opacity-30">image</span>
@@ -232,7 +238,7 @@
                         <p class="text-[16px] leading-[24px] text-[#e0e3e5] italic">"{{ $testi->quote }}"</p>
                         <div class="flex items-center gap-4 pt-4 border-t border-[rgba(74,127,199,0.2)]">
                             @if($testi->photo_url)
-                                <img src="{{ $testi->photo_url }}" alt="{{ $testi->client_name }}" class="w-12 h-12 rounded-full object-cover">
+                                <img src="{{ $testi->photo_url }}" alt="{{ $testi->client_name }}" class="w-12 h-12 rounded-full object-cover" loading="lazy" decoding="async" width="48" height="48">
                             @else
                                 <div class="w-12 h-12 rounded-full bg-[#a8c8ff]/20 flex items-center justify-center font-bold text-[#a8c8ff]">
                                     {{ substr($testi->client_name, 0, 2) }}

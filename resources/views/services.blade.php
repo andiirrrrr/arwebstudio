@@ -52,6 +52,8 @@
                                 <img src="{{ asset('storage/' . $service->thumbnail) }}" 
                                     alt="{{ $service->name }}" 
                                     loading="lazy"
+                                    decoding="async"
+                                    width="800" height="600"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-[#a8c8ff]">

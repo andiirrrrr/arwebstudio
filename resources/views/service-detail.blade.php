@@ -53,7 +53,9 @@
                     @if($service->thumbnail)
                         <img src="{{ asset('storage/' . $service->thumbnail) }}" 
                              alt="Layanan {{ $service->name }} - Jasa Pembuatan Website di Makassar | ARWebStudio" 
+                             width="800" height="600"
                              fetchpriority="high"
+                             decoding="async"
                              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100">
                     @else
                         <div class="w-full h-full bg-[#1d2022] flex items-center justify-center">
@@ -308,6 +310,8 @@
                                 <img src="{{ $project->formatted_thumbnail_url }}" 
                                     alt="{{ $project->title }}" 
                                     loading="lazy"
+                                    decoding="async"
+                                    width="800" height="600"
                                     class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105">
                             @else
                                 <div class="w-full h-full bg-[#1d2022] flex items-center justify-center">

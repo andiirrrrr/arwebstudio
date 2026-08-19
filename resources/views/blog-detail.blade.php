@@ -61,7 +61,9 @@
                 <div class="mt-6 rounded-2xl overflow-hidden">
                     <img src="{{ asset('storage/' . $article->thumbnail) }}" 
                          alt="{{ $article->title }}" 
+                         width="1200" height="630"
                          fetchpriority="high"
+                         decoding="async"
                          class="w-full h-auto object-cover">
                 </div>
             @endif
@@ -128,6 +130,9 @@
                             @if($related->thumbnail)
                                 <img src="{{ asset('storage/' . $related->thumbnail) }}" 
                                      alt="{{ $related->title }}" 
+                                     loading="lazy"
+                                     decoding="async"
+                                     width="800" height="450"
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-[#a8c8ff]/30">

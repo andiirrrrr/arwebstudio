@@ -59,6 +59,8 @@ class ArticleResource extends Resource
                         Forms\Components\RichEditor::make('content')
                             ->label('Konten')
                             ->required()
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('article-content')
                             ->toolbarButtons([
                                 'bold',
                                 'italic',
