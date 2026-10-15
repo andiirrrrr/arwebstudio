@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Kontak ARWebStudio - Jasa Pembuatan Website Makassar')
-@section('meta_description', 'Hubungi ARWebStudio untuk konsultasi pembuatan website profesional di Makassar. Tersedia layanan WhatsApp dan email untuk UMKM di Makassar.')
+@section('title', 'Kontak ARWebStudio - Jasa Pembuatan Website Profesional')
+@section('meta_description', 'Hubungi ARWebStudio untuk konsultasi pembuatan website profesional. Tersedia layanan WhatsApp dan email untuk UMKM dan bisnis.')
 @section('canonical', route('contact'))
 
 {{-- Open Graph --}}
-@section('og_title', 'Hubungi ARWebStudio - Konsultasi Jasa Website Makassar Gratis')
-@section('og_description', 'Konsultasikan kebutuhan website Anda dengan ARWebStudio Makassar secara gratis. Balasan cepat via WhatsApp!')
+@section('og_title', 'Hubungi ARWebStudio - Konsultasi Jasa Website Gratis')
+@section('og_description', 'Konsultasikan kebutuhan website Anda dengan ARWebStudio secara gratis. Balasan cepat via WhatsApp!')
 
 @section('content')
     <!-- ===== HERO SECTION ===== -->
@@ -53,7 +53,7 @@
                             </div>
                             <div class="pt-1">
                                 <p class="text-xs font-bold text-[#a8c8ff] uppercase tracking-[0.15em] mb-1">Lokasi</p>
-                                <p class="text-[15px] text-[#e0e3e5] leading-relaxed">{{ site_setting('address', 'Makassar, Sulawesi Selatan, Indonesia') }}</p>
+                                <p class="text-[15px] text-[#e0e3e5] leading-relaxed">{{ site_setting('address', 'Indonesia') }}</p>
                             </div>
                         </div>
 
@@ -199,7 +199,7 @@
         <div class="max-w-[1280px] mx-auto">
             <div class="contact-map-card w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-[rgba(74,127,199,0.2)] shadow-xl">
                 <iframe
-                    src="{{ site_setting('maps_url') ?: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127194.19700467725!2d119.35074481696039!3d-5.16609164923734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32cee0a2b26386bd%3A0x1d60c73e7173d%212sMakassar%2C%20Kota%20Makassar%2C%20Sulawesi%20Selatan!5e0!3m2!1sid!2sid!4v1720000000000!5m2!1sid!2sid' }}"
+                    src="{{ site_setting('maps_url') ?: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16300600.0!2d106.0!3d-2.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sid!2sid!4v1720000000000!5m2!1sid!2sid' }}"
                     width="100%"
                     height="100%"
                     style="border:0; display:block;"

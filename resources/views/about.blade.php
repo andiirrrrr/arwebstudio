@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang ARWebStudio - Jasa Pembuatan Website di Makassar')
-@section('meta_description', 'ARWebStudio adalah jasa pembuatan website yang didirikan tahun 2026 di Makassar. Full Stack Developer dengan bantuan AI untuk solusi digital terbaik bagi UMKM Makassar.')
+@section('title', 'Tentang ARWebStudio - Jasa Pembuatan Website Profesional')
+@section('meta_description', 'ARWebStudio adalah jasa pembuatan website profesional yang didirikan tahun 2026. Full Stack Developer dengan bantuan AI untuk solusi digital terbaik bagi bisnis dan UMKM.')
 @section('canonical', route('about'))
 
 {{-- Open Graph --}}
-@section('og_title', 'Tentang ARWebStudio - Tim Jasa Website Profesional Makassar')
-@section('og_description', 'ARWebStudio didirikan di Makassar tahun 2026. Kami adalah Full Stack Developer yang membantu UMKM & bisnis tumbuh melalui solusi website profesional.')
+@section('og_title', 'Tentang ARWebStudio - Tim Jasa Website Profesional')
+@section('og_description', 'ARWebStudio didirikan tahun 2026. Kami adalah Full Stack Developer yang membantu UMKM & bisnis tumbuh melalui solusi website profesional.')
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">
@@ -37,14 +37,14 @@
                 <div class="about-hero-tags flex flex-wrap gap-3 mt-2">
                     <span class="px-4 py-2 bg-[#F5A623]/10 border border-[#F5A623]/20 rounded-full text-[#F5A623] text-sm font-semibold">AI-Powered Development</span>
                     <span class="px-4 py-2 bg-[#a8c8ff]/10 border border-[#a8c8ff]/20 rounded-full text-[#a8c8ff] text-sm font-semibold">Full Stack Expert</span>
-                    <span class="px-4 py-2 bg-[#114784]/30 border border-[#114784]/20 rounded-full text-[#a8c8ff] text-sm font-semibold">Makassar, Indonesia</span>
+                    <span class="px-4 py-2 bg-[#114784]/30 border border-[#114784]/20 rounded-full text-[#a8c8ff] text-sm font-semibold">Indonesia</span>
                 </div>
             </div>
 
             <!-- Right Column - Image -->
             <div class="lg:col-span-5 relative mt-12 lg:mt-0">
                 <div class="about-hero-image relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] border border-white/5 transform lg:translate-x-12">
-                    <img alt="Logo ARWebStudio - Jasa Website Makassar" class="w-full h-full object-cover" src="{{ asset('images/logo.webp') }}">
+                    <img alt="Logo ARWebStudio - Jasa Pembuatan Website Profesional" class="w-full h-full object-cover" src="{{ asset('images/logo.webp') }}">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#101415] via-transparent to-transparent opacity-40"></div>
                 </div>
                 <!-- Floating Badge -->

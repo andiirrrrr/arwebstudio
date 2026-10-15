@@ -32,7 +32,7 @@ Website yang baik tidak berhenti setelah diluncurkan. Pastikan ada garansi perba
 5. Perhatikan Biaya dengan Detail
 Mintalah rincian biaya yang jelas, termasuk biaya pengembangan, hosting, dan maintenance.
 
-Kesimpulan: Memilih jasa pembuatan website yang tepat membutuhkan riset dan pertimbangan yang matang. Jika Anda mencari jasa pembuatan website profesional di Makassar, ARWebStudio siap membantu Anda.',
+Kesimpulan: Memilih jasa pembuatan website yang tepat membutuhkan riset dan pertimbangan yang matang. Jika Anda mencari jasa pembuatan website profesional, ARWebStudio siap membantu Anda.',
                 'author' => 'ARWebStudio',
                 'is_published' => true,
                 'published_at' => now()->subDays(30),
@@ -140,9 +140,9 @@ Kesimpulan: Dengan perencanaan yang matang, Anda bisa memiliki website profesion
 
             // ===== UMKM =====
             [
-                'title' => '5 Alasan UMKM Makassar Wajib Punya Website Profesional',
+                'title' => '5 Alasan UMKM Wajib Punya Website Profesional',
                 'category' => 'UMKM',
-                'content' => 'Di era digital seperti sekarang, UMKM di Makassar tidak bisa lagi mengandalkan strategi pemasaran konvensional saja. Berikut 5 alasan mengapa UMKM Makassar wajib memiliki website profesional:
+                'content' => 'Di era digital seperti sekarang, pelaku UMKM tidak bisa lagi mengandalkan strategi pemasaran konvensional saja. Berikut 5 alasan mengapa UMKM wajib memiliki website profesional:
 
 1. Jangkauan Pasar yang Lebih Luas
 Dengan website, bisnis Anda bisa diakses oleh siapa saja, kapan saja, dan di mana saja. Pelanggan dari berbagai daerah bisa menemukan bisnis Anda dengan mudah.
@@ -159,7 +159,7 @@ Website bekerja untuk Anda 24 jam sehari, 7 hari seminggu tanpa henti.
 5. Analisis Data Pelanggan
 Dengan website, Anda bisa melacak perilaku pengunjung untuk mengembangkan strategi bisnis.
 
-Kesimpulan: Memiliki website profesional adalah langkah strategis bagi UMKM di Makassar untuk bersaing di era digital.',
+Kesimpulan: Memiliki website profesional adalah langkah strategis bagi UMKM untuk bersaing di era digital.',
                 'author' => 'ARWebStudio',
                 'is_published' => true,
                 'published_at' => now()->subDays(28),

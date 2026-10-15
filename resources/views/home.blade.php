@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')
-@section('meta_description', 'ARWebStudio - Jasa pembuatan website profesional di Makassar. Landing page, company profile, e-commerce & custom web app untuk UMKM.')
+@section('title', 'Jasa Pembuatan Website Profesional - ARWebStudio')
+@section('meta_description', 'ARWebStudio - Jasa pembuatan website profesional. Landing page, company profile, e-commerce & custom web app untuk bisnis dan UMKM.')
 @section('canonical', route('home'))
 
 {{-- Open Graph Home --}}
-@section('og_title', 'Jasa Pembuatan Website Profesional di Makassar - ARWebStudio')
-@section('og_description', 'Jasa pembuatan website untuk UMKM & bisnis di Makassar. Landing page, company profile, e-commerce, custom web app.')
+@section('og_title', 'Jasa Pembuatan Website Profesional - ARWebStudio')
+@section('og_description', 'Jasa pembuatan website profesional untuk UMKM & bisnis. Landing page, company profile, e-commerce, custom web app.')
 
 @section('content')
     <!-- ===== BACKGROUND OVERSIZED TYPOGRAPHY (Lazy-loaded) ===== -->
@@ -50,7 +50,7 @@
                          srcset="{{ asset('images/image-500.webp') }} 500w, {{ asset('images/image.webp') }} 1254w"
                          sizes="(min-width: 1024px) 500px, 90vw"
                          src="{{ asset('images/image.webp') }}" 
-                         alt="Tim ARWebStudio - Jasa Pembuatan Website Profesional di Makassar"
+                         alt="Tim ARWebStudio - Jasa Pembuatan Website Profesional"
                          width="500" height="500"
                          fetchpriority="high"
                          decoding="async">

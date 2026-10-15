@@ -60,7 +60,7 @@ class ContactSettings extends Page implements HasForms
                     ->helperText('Format nomor yang ditampilkan di halaman publik'),
                 TextInput::make('address')
                     ->label('Lokasi / Alamat')
-                    ->placeholder('Makassar, Sulawesi Selatan, Indonesia')
+                    ->placeholder('Indonesia')
                     ->maxLength(255),
                 Textarea::make('maps_url')
                     ->label('URL Google Maps')

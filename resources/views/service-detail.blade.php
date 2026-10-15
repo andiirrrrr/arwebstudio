@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', $service->name . ' - Jasa Pembuatan Website di Makassar | ARWebStudio')
-@section('meta_description', 'Layanan ' . $service->name . ' dari ARWebStudio, jasa pembuatan website profesional di Makassar. ' . Str::limit($service->description, 140))
+@section('title', $service->name . ' - Jasa Pembuatan Website | ARWebStudio')
+@section('meta_description', 'Layanan ' . $service->name . ' dari ARWebStudio, jasa pembuatan website profesional. ' . Str::limit($service->description, 140))
 @section('canonical', route('service.detail', $service->id))
 
 {{-- Open Graph per layanan --}}
-@section('og_title', $service->name . ' - Jasa Website Makassar | ARWebStudio')
+@section('og_title', $service->name . ' - Jasa Website | ARWebStudio')
 @section('og_description', Str::limit($service->description, 155))
 @section('og_image', $service->thumbnail ? asset('storage/' . $service->thumbnail) : asset('images/og-image.jpg'))
-@section('twitter_title', $service->name . ' | ARWebStudio Makassar')
+@section('twitter_title', $service->name . ' | ARWebStudio')
 @section('twitter_description', Str::limit($service->description, 155))
 @section('twitter_image', $service->thumbnail ? asset('storage/' . $service->thumbnail) : asset('images/og-image.jpg'))
 
@@ -52,7 +52,7 @@
                 <div class="aspect-[4/3] w-full overflow-hidden rounded-xl border border-[rgba(74,127,199,0.2)] shadow-2xl group">
                     @if($service->thumbnail)
                         <img src="{{ asset('storage/' . $service->thumbnail) }}" 
-                             alt="Layanan {{ $service->name }} - Jasa Pembuatan Website di Makassar | ARWebStudio" 
+                             alt="Layanan {{ $service->name }} - Jasa Pembuatan Website Profesional | ARWebStudio" 
                              width="800" height="600"
                              fetchpriority="high"
                              decoding="async"
@@ -344,11 +344,11 @@
         "@type": "LocalBusiness",
         "name": "ARWebStudio",
         "url": "{{ url('/') }}",
-        "areaServed": "Makassar"
+        "areaServed": "Indonesia"
     },
     "areaServed": {
-        "@type": "City",
-        "name": "Makassar"
+        "@type": "Country",
+        "name": "Indonesia"
     },
     "url": "{{ route('service.detail', $service->id) }}"
     @if($service->thumbnail),

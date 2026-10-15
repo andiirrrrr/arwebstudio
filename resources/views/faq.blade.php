@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'FAQ - Pertanyaan Umum ARWebStudio Makassar')
-@section('meta_description', 'Pertanyaan umum seputar pembuatan website, biaya, waktu pengerjaan, dan layanan ARWebStudio di Makassar.')
+@section('title', 'FAQ - Pertanyaan Umum ARWebStudio')
+@section('meta_description', 'Pertanyaan umum seputar pembuatan website, biaya, waktu pengerjaan, dan layanan profesional ARWebStudio.')
 @section('canonical', route('faq'))
 
 {{-- Open Graph --}}
-@section('og_title', 'FAQ Jasa Website Makassar - ARWebStudio')
-@section('og_description', 'Temukan jawaban atas pertanyaan umum seputar jasa pembuatan website, harga, waktu pengerjaan, dan garansi dari ARWebStudio Makassar.')
+@section('og_title', 'FAQ Jasa Website Profesional - ARWebStudio')
+@section('og_description', 'Temukan jawaban atas pertanyaan umum seputar jasa pembuatan website, harga, waktu pengerjaan, dan garansi dari ARWebStudio.')
 
 @section('content')
 <div class="flex flex-col w-full bg-[#101415]">

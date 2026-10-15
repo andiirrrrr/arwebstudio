@@ -20,7 +20,7 @@ class SitemapController extends Controller
         $content = view('sitemap', compact('services', 'projects', 'articles'))->render();
 
         return response($content, 200)
-            ->header('Content-Type', 'application/xml')
+            ->header('Content-Type', 'application/xml; charset=UTF-8')
             ->header('Cache-Control', 'public, max-age=3600');
     }
 }

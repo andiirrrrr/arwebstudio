@@ -97,7 +97,7 @@ Kesimpulan: Copywriting yang efektif akan meningkatkan konversi website Anda sec
                 'views' => rand(10, 500),
             ],
             [
-                'title' => 'Panduan Google My Business untuk Bisnis Lokal Makassar',
+                'title' => 'Panduan Google My Business untuk Bisnis Lokal',
                 'category' => 'Digital Marketing',
                 'content' => 'Google My Business adalah alat gratis yang sangat powerful untuk bisnis lokal. Berikut panduan lengkapnya:
 
@@ -119,7 +119,7 @@ Bagikan informasi terbaru, promo, atau event di Google My Business.
 6. Pantau Insight
 Lihat bagaimana pelanggan menemukan bisnis Anda dan optimasi strategi.
 
-Kesimpulan: Google My Business adalah langkah pertama yang wajib untuk bisnis lokal di Makassar.',
+Kesimpulan: Google My Business adalah langkah pertama yang wajib untuk mengembangkan bisnis lokal.',
                 'author' => 'ARWebStudio',
                 'is_published' => true,
                 'published_at' => now()->subDays(4),
@@ -428,21 +428,21 @@ Kesimpulan: Domain Authority yang tinggi membutuhkan konsistensi dan strategi ja
                 'views' => rand(10, 500),
             ],
             [
-                'title' => 'Panduan Local SEO untuk Bisnis di Makassar',
+                'title' => 'Panduan Local SEO untuk Meningkatkan Bisnis Lokal',
                 'category' => 'SEO',
-                'content' => 'Local SEO membantu bisnis lokal ditemukan oleh pelanggan di sekitar. Berikut panduan Local SEO untuk Makassar:
+                'content' => 'Local SEO membantu bisnis lokal ditemukan oleh pelanggan di sekitar. Berikut panduan Local SEO untuk bisnis Anda:
 
 1. Google My Business
 Daftar dan optimasi profil Google My Business.
 
 2. Local Keywords
-Gunakan kata kunci seperti "Makassar", "Sulawesi Selatan" dalam konten.
+Gunakan kata kunci berbasis kota atau wilayah target Anda dalam konten.
 
 3. Local Backlink
-Dapatkan link dari website lokal Makassar.
+Dapatkan link dari website atau media lokal di wilayah Anda.
 
 4. Ulasan Pelanggan
-Kumpulkan ulasan positif dari pelanggan di Makassar.
+Kumpulkan ulasan positif dari pelanggan lokal Anda.
 
 5. NAP Consistency
 Nama, Alamat, dan Nomor Telepon konsisten di semua platform.
@@ -562,9 +562,9 @@ Kesimpulan: Keamanan adalah investasi penting untuk menjaga kepercayaan pelangga
 
             // ===== UMKM =====
             [
-                'title' => 'Cara Memulai Bisnis Online untuk Pemula di Makassar',
+                'title' => 'Cara Memulai Bisnis Online untuk Pemula',
                 'category' => 'UMKM',
-                'content' => 'Memulai bisnis online tidak pernah semudah sekarang. Berikut panduan untuk pemula di Makassar:
+                'content' => 'Memulai bisnis online tidak pernah semudah sekarang. Berikut panduan untuk pemula:
 
 1. Tentukan Niche
 Pilih produk atau jasa yang Anda kuasai.

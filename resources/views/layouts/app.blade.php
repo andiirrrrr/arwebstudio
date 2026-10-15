@@ -9,17 +9,18 @@
     <meta name="language" content="id">
 
     <!-- ===== GEO TAGS ===== -->
-    <meta name="geo.region" content="ID-SN">
-    <meta name="geo.placename" content="Makassar">
-    <meta name="geo.position" content="-5.147665;119.432731">
-    <meta name="ICBM" content="-5.147665, 119.432731">
+    <meta name="geo.region" content="ID">
+    <meta name="geo.placename" content="Indonesia">
 
     <!-- ===== KEYWORDS ===== -->
-    <meta name="keywords" content="jasa pembuatan website makassar, jasa website makassar, pembuatan website makassar, website UMKM makassar, jasa web makassar, company profile makassar, toko online makassar, custom web app makassar, ARWebStudio">
+    <meta name="keywords" content="jasa pembuatan website, jasa website profesional, pembuatan website, website UMKM, jasa web, company profile, toko online, custom web app, ARWebStudio">
 
     <!-- ===== FAVICON ===== -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/logo-arwebstudio.svg') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('favicon-48x48.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('favicon-512x512.png') }}">
 
     <!-- ===== CANONICAL URL ===== -->
     <link rel="canonical" href="@yield('canonical', url()->current())">
@@ -27,20 +28,20 @@
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="@yield('og_title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')">
-    <meta property="og:description" content="@yield('og_description', 'Jasa pembuatan website profesional di Makassar — Landing Page, Company Profile, E-commerce & Web App custom.')">
+    <meta property="og:title" content="@yield('og_title', 'Jasa Pembuatan Website Profesional - ARWebStudio')">
+    <meta property="og:description" content="@yield('og_description', 'Jasa pembuatan website profesional — Landing Page, Company Profile, E-commerce & Web App custom.')">
     <meta property="og:image" content="@yield('og_image', asset('images/og-image.jpg'))">
     <meta property="og:site_name" content="ARWebStudio">
     <meta property="og:locale" content="id_ID">
 
     <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('twitter_title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')">
-    <meta name="twitter:description" content="@yield('twitter_description', 'ARWebStudio - Jasa pembuatan website profesional di Makassar.')">
+    <meta name="twitter:title" content="@yield('twitter_title', 'Jasa Pembuatan Website Profesional - ARWebStudio')">
+    <meta name="twitter:description" content="@yield('twitter_description', 'ARWebStudio - Jasa pembuatan website profesional.')">
     <meta name="twitter:image" content="@yield('twitter_image', asset('images/og-image.jpg'))">
 
-    <title>@yield('title', 'Jasa Pembuatan Website di Makassar - ARWebStudio')</title>
-    <meta name="description" content="@yield('meta_description', 'ARWebStudio - Jasa pembuatan website profesional di Makassar untuk UMKM, company profile, e-commerce, dan custom web app.')">
+    <title>@yield('title', 'Jasa Pembuatan Website Profesional - ARWebStudio')</title>
+    <meta name="description" content="@yield('meta_description', 'ARWebStudio - Jasa pembuatan website profesional untuk UMKM, company profile, e-commerce, dan custom web app.')">
     
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -157,27 +158,19 @@
         }
     </style>
 
-    <!-- ===== STRUCTURED DATA - LOCAL BUSINESS ===== -->
+    <!-- ===== STRUCTURED DATA - PROFESSIONAL SERVICE ===== -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "ProfessionalService",
         "name": "ARWebStudio",
-        "description": "Jasa pembuatan website profesional di Makassar. Melayani UMKM, company profile, e-commerce, dan custom web app.",
+        "description": "Jasa pembuatan website profesional. Melayani UMKM, company profile, e-commerce, dan custom web app.",
         "url": "{{ url('/') }}",
         "logo": "{{ asset('images/logo-arwebstudio.svg') }}",
         "image": "{{ asset('images/og-image.jpg') }}",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Makassar",
-            "addressLocality": "Makassar",
-            "addressRegion": "Sulawesi Selatan",
             "addressCountry": "ID"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "-5.147665",
-            "longitude": "119.432731"
         },
         "contactPoint": {
             "@type": "ContactPoint",
@@ -199,8 +192,8 @@
             "Custom Web App"
         ],
         "areaServed": {
-            "@type": "City",
-            "name": "Makassar"
+            "@type": "Country",
+            "name": "Indonesia"
         }
     }
     </script>
@@ -376,7 +369,7 @@
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="text-sm font-semibold text-[#e0e3e5] uppercase tracking-widest">Kontak</h4>
-                <p class="text-[#c5c6ce]">{{ site_setting('address', 'Makassar, Indonesia') }}<br/>{{ site_setting('email') }}<br/>{{ site_setting('whatsapp_display', site_setting('whatsapp')) }}</p>
+                <p class="text-[#c5c6ce]">{{ site_setting('address', 'Indonesia') }}<br/>{{ site_setting('email') }}<br/>{{ site_setting('whatsapp_display', site_setting('whatsapp')) }}</p>
             </div>
         </div>
         <div class="max-w-[1280px] mx-auto px-5 lg:px-16 mt-4 pt-4 border-t border-[rgba(74,127,199,0.2)] text-center text-sm text-[#c5c6ce] translate-y-4">
